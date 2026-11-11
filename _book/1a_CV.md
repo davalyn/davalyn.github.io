@@ -99,7 +99,7 @@ Relevant coursework:
 ## Certifications & Courses
 
 - Data Science for Biology – [Institution] (Ongoing)
-- Completed the first year of the Bachelor's programme (propaedeutic certificate).
+- Successfully completed all first year courses and obtained the propaedeutic certificate (60 ECTS credits).
 
 ---
 
