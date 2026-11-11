@@ -7,13 +7,12 @@ projects-research
 rna-seq-analysis-liver-and-kidney-tissue-comparison
 single-cell-rna-seq-analysis
 professional-experience
-job-title-employer
-previous-job-title-employer
+fresh-department-responsible-albert-heijn
 certifications-courses
 additional-information
 toekomstplan
 waar-zou-je-graag-willen-werken-over-1-of-2-jaar-hoe-zie-jouw-droombaan-er-uit
-hoe-sta-je-er-nu-voor-om-daadwerkelijk-aan-die-droombaan-te-kunnen-beginnen-welke-skills-heb-je-al
+hoe-sta-je-er-voor-om-daadwerkelijk-aan-die-droombaan-te-kunnen-beginnen-welke-skills-heb-je
 welke-skills-zou-je-nog-moetenwillen-leren
 vrije-opdracht
 rna-seq-daur2
