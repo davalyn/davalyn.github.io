@@ -14,7 +14,10 @@ toekomstplan
 waar-zou-je-graag-willen-werken-over-1-of-2-jaar-hoe-zie-jouw-droombaan-er-uit
 hoe-sta-je-er-voor-om-daadwerkelijk-aan-die-droombaan-te-kunnen-beginnen-welke-skills-heb-je
 welke-skills-zou-je-nog-moetenwillen-leren
-vrije-opdracht
+machine-learning-voor-kankerclassificatie
+welke-nieuwe-skill-wil-je-leren-en-waarom
+hoe-ga-je-de-skill-leren-en-wat-is-je-planning
+hoe-ga-je-laten-zien-dat-je-de-skill-beheerst
 rna-seq-daur2
 portfolio-repository
 analyse-reproduceren
