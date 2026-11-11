@@ -85,26 +85,21 @@ Relevant coursework:
 
 ## Professional Experience
 
-### [Job Title] | [Employer]
+### Fresh Department Responsible | Albert Heijn
 
-*[Month Year] – Present | [City]*
+* [June 2025] – Present | [Nieuwegein]
 
-- [Describe your main responsibilities.]
-- [Highlight relevant skills such as teamwork, communication and problem-solving.]
-- [Mention relevant achievements.]
-
-### [Previous Job Title] | [Employer]
-
-*[Month Year] – [Month Year] | [City]*
-
-- [Describe relevant responsibilities and experience.]
+- Responsible for the daily operations and overall quality management of the fresh produce department.
+- Conducted twice-daily quality controls (QC) across all products to ensure product freshness, quality and compliance with company standards.
+- Monitored product quality, stock levels and presentation to maintain the departmental standards.
+- Coordinated daily departmental activities and ensured efficient workflow.
 
 ---
 
 ## Certifications & Courses
 
 - Data Science for Biology – [Institution] (Ongoing)
-- [Additional completed courses or certifications]
+- Completed the first year of the Bachelor's programme (propaedeutic certificate).
 
 ---
 
