@@ -1,6 +1,6 @@
 # Portfolio DSFB2
 
-Deze repository bevat mijn portfolio voor de opleiding Data Science for Biology 2 (DSFB2).
+Deze repository bevat mijn portfolio voor DSFB2.
 
 ## Inhoud
 
@@ -31,3 +31,4 @@ De repository bevat de volgende onderdelen:
 - Bestandsnamen zijn duidelijk en herkenbaar.
 - De R Markdown-hoofdstukken blijven in de hoofdmap voor Bookdown.
 - Git wordt gebruikt voor versiebeheer van de repository.
+
