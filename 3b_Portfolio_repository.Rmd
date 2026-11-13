@@ -7,6 +7,6 @@ knitr::include_graphics("images/folder_structure2.png")
 
 
 ## Screenshot 2 – README:
-```{r screenshot-readme, echo=FALSE, out.width="100%"}
+```{r screenshot-readme, echo=FALSE, out.width="80%"}
 knitr::include_graphics("images/readme2.png")
 ```
