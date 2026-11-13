@@ -19,7 +19,11 @@ welke-nieuwe-skill-wil-je-leren-en-waarom
 hoe-ga-je-de-skill-leren-en-wat-is-je-planning
 hoe-ga-je-laten-zien-dat-je-de-skill-beheerst
 rna-seq-daur2
+screenshot-1-mappenstructuur
+screenshot-2-readme
 portfolio-repository
+screenshot-1-portfolio-structuur
+screenshot-2-readme-1
 analyse-reproduceren
 reproduceerbaarheid-beoordelen
 sql
