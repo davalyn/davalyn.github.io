@@ -1,12 +1,12 @@
 # RNA-seq DAUR2
 
-**Screenshot 1 – Mappenstructuur**
+## Screenshot 1 – Mappenstructuur:
 ```{r screenshot-structure, echo=FALSE, out.width="100%"}
 knitr::include_graphics("images/folder_structure1.png")
 ```
 
 
-**Screenshot 2 – README**
+## Screenshot 2 – README:
 ```{r screenshot-readme, echo=FALSE, out.width="100%"}
 knitr::include_graphics("images/readme1.png")
 ```
