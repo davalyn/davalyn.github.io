@@ -14,7 +14,6 @@ Hoe kan de voedingssamenstelling van een groeimedium nauwkeurig worden vertaald 
 
 De onderzoekers ontwikkelden een stappenplan met E. coli en LB medium. Met R analyseerden ze de voedingssamenstelling en voorspelden ze de bacteriële groei. De resultaten laten zien dat verschillende voedingsstoffen, zoals aminozuren en koolhydraten invloed hebben op de voorspelde groei.
 
----
 
 ## Transparantiecriteria
 
@@ -29,7 +28,6 @@ De onderzoekers ontwikkelden een stappenplan met E. coli en LB medium. Met R ana
 | Funding Statement | Ja | De financiering van de Deutsche Forschungsgemeinschaft wordt vermeld. |
 | Code Availability | Ja | De R-scripts zijn openbaar beschikbaar op GitHub. |
 
----
 
 ## Beoordeling van de R-code
 
