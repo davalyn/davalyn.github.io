@@ -1,8 +1,3 @@
----
-title: "Opdracht 4a – Reproducible Science"
-output: html_document
----
-
 
 
 # Analyse reproduceren

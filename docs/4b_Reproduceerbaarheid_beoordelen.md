@@ -14,37 +14,35 @@ Hoe kan de voedingssamenstelling van een groeimedium nauwkeurig worden vertaald 
 
 De onderzoekers ontwikkelden een stappenplan met E. coli en LB medium. Met R analyseerden ze de voedingssamenstelling en voorspelden ze de bacteriële groei. De resultaten laten zien dat verschillende voedingsstoffen, zoals aminozuren en koolhydraten invloed hebben op de voorspelde groei.
 
----
 
 ## Transparantiecriteria
 
 | Criterium | Beoordeling | Toelichting |
 |---|---|---|
-| Study Purpose | Ja | Het onderzoeksdoel staat duidelijk beschreven in de introductie. |
+| Study Purpose | Ja | Het onderzoeksdoel is duidelijk beschreven. |
 | Data Availability Statement | Ja | Er is een aparte verklaring over de beschikbaarheid van data. |
-| Data Location | GitHub | Data en R-scripts zijn beschikbaar via de [GitHub-repository](https://github.com/maringos/StepDiet). |
-| Study Location | Nee | Er wordt geen specifieke geografische onderzoekslocatie vermeld. |
-| Author Review | Ja | De auteurs vermelden professionele e-mailadressen en universitaire affiliaties. |
+| Data Location | GitHub | Data en R-scripts zijn beschikbaar op GitHub |
+| Study Location | Nee | Er wordt nergens een specifieke locatie vermeld. |
+| Author Review | Ja | De auteurs vermelden hun e-mailadressen. |
 | Ethics Statement | Nee | Er is geen aparte ethische verklaring opgenomen. |
 | Funding Statement | Ja | De financiering van de Deutsche Forschungsgemeinschaft wordt vermeld. |
 | Code Availability | Ja | De R-scripts zijn openbaar beschikbaar op GitHub. |
 
----
 
 ## Beoordeling van de R-code
 
 ### Beschrijving van de code
 
-De R-code gebruikt een metabool model van *E. coli* om te onderzoeken hoe voedingsstoffen de voorspelde bacteriële groei beïnvloeden. Hiervoor wordt Flux Balance Analysis (FBA) gebruikt. De code berekent het effect van extra voedingsstoffen en maakt hiervan staafdiagrammen.
+De R-code gebruikt een metabool model van *E. coli* om te onderzoeken hoe voedingsstoffen de voorspelde bacteriële groei beïnvloeden. Hiervoor wordt Flux Balance Analysis gebruikt. De code berekent het effect van extra voedingsstoffen en maakt hiervan staafdiagrammen.
 
 ### Leesbaarheid
 
 **Score: 3/5**
 
-De code bevat duidelijke commentaren en is verdeeld in onderdelen. Sommige functies en berekeningen zijn echter complex. Ook moeten de bestandspaden worden aangepast.
+De code bevat duidelijke comments en is netjes verdeeld, alleen zijn sommige functies en berekeningen voor mij te complex. Ook moest ik steeds de bestandspaden aanpassen.
 
 ### Reproduceerbaarheid
 
 **Score: 2/5**
 
-Ik heb geprobeerd de analyse uit te voeren in RStudio, maar dit lukte door installatieproblemen met het benodigde pakket `glpkAPI` niet. Hierdoor kon ik geen figuur reproduceren. De code en data zijn beschikbaar, maar de uitvoering vereist aanpassingen aan de softwareomgeving en bestandspaden.
+Ik heb geprobeerd de analyse uit te voeren in RStudio, maar dit lukte mij niet door installatieproblemen met `glpkAPI`. Hierdoor kon ik geen figuren reproduceren. De code en data zijn beschikbaar, maar de uitvoering heeft aanpassingen nodig.

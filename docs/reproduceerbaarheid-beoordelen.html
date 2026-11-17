@@ -53,6 +53,71 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -171,7 +236,6 @@
 <div id="methode-en-resultaten" class="section level3 hasAnchor" number="7.1.2">
 <h3><span class="header-section-number">7.1.2</span> Methode en resultaten<a href="reproduceerbaarheid-beoordelen.html#methode-en-resultaten" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>De onderzoekers ontwikkelden een stappenplan met E. coli en LB medium. Met R analyseerden ze de voedingssamenstelling en voorspelden ze de bacteriële groei. De resultaten laten zien dat verschillende voedingsstoffen, zoals aminozuren en koolhydraten invloed hebben op de voorspelde groei.</p>
-<hr />
 </div>
 </div>
 <div id="transparantiecriteria" class="section level2 hasAnchor" number="7.2">
@@ -193,7 +257,7 @@
 <tr class="odd">
 <td>Study Purpose</td>
 <td>Ja</td>
-<td>Het onderzoeksdoel staat duidelijk beschreven in de introductie.</td>
+<td>Het onderzoeksdoel is duidelijk beschreven.</td>
 </tr>
 <tr class="even">
 <td>Data Availability Statement</td>
@@ -203,17 +267,17 @@
 <tr class="odd">
 <td>Data Location</td>
 <td>GitHub</td>
-<td>Data en R-scripts zijn beschikbaar via de <a href="https://github.com/maringos/StepDiet">GitHub-repository</a>.</td>
+<td>Data en R-scripts zijn beschikbaar op GitHub</td>
 </tr>
 <tr class="even">
 <td>Study Location</td>
 <td>Nee</td>
-<td>Er wordt geen specifieke geografische onderzoekslocatie vermeld.</td>
+<td>Er wordt nergens een specifieke locatie vermeld.</td>
 </tr>
 <tr class="odd">
 <td>Author Review</td>
 <td>Ja</td>
-<td>De auteurs vermelden professionele e-mailadressen en universitaire affiliaties.</td>
+<td>De auteurs vermelden hun e-mailadressen.</td>
 </tr>
 <tr class="even">
 <td>Ethics Statement</td>
@@ -232,23 +296,22 @@
 </tr>
 </tbody>
 </table>
-<hr />
 </div>
 <div id="beoordeling-van-de-r-code" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Beoordeling van de R-code<a href="reproduceerbaarheid-beoordelen.html#beoordeling-van-de-r-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="beschrijving-van-de-code" class="section level3 hasAnchor" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Beschrijving van de code<a href="reproduceerbaarheid-beoordelen.html#beschrijving-van-de-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>De R-code gebruikt een metabool model van <em>E. coli</em> om te onderzoeken hoe voedingsstoffen de voorspelde bacteriële groei beïnvloeden. Hiervoor wordt Flux Balance Analysis (FBA) gebruikt. De code berekent het effect van extra voedingsstoffen en maakt hiervan staafdiagrammen.</p>
+<p>De R-code gebruikt een metabool model van <em>E. coli</em> om te onderzoeken hoe voedingsstoffen de voorspelde bacteriële groei beïnvloeden. Hiervoor wordt Flux Balance Analysis gebruikt. De code berekent het effect van extra voedingsstoffen en maakt hiervan staafdiagrammen.</p>
 </div>
 <div id="leesbaarheid" class="section level3 hasAnchor" number="7.3.2">
 <h3><span class="header-section-number">7.3.2</span> Leesbaarheid<a href="reproduceerbaarheid-beoordelen.html#leesbaarheid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Score: 3/5</strong></p>
-<p>De code bevat duidelijke commentaren en is verdeeld in onderdelen. Sommige functies en berekeningen zijn echter complex. Ook moeten de bestandspaden worden aangepast.</p>
+<p>De code bevat duidelijke comments en is netjes verdeeld, alleen zijn sommige functies en berekeningen voor mij te complex. Ook moest ik steeds de bestandspaden aanpassen.</p>
 </div>
 <div id="reproduceerbaarheid" class="section level3 hasAnchor" number="7.3.3">
 <h3><span class="header-section-number">7.3.3</span> Reproduceerbaarheid<a href="reproduceerbaarheid-beoordelen.html#reproduceerbaarheid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Score: 2/5</strong></p>
-<p>Ik heb geprobeerd de analyse uit te voeren in RStudio, maar dit lukte door installatieproblemen met het benodigde pakket <code>glpkAPI</code> niet. Hierdoor kon ik geen figuur reproduceren. De code en data zijn beschikbaar, maar de uitvoering vereist aanpassingen aan de softwareomgeving en bestandspaden.</p>
+<p>Ik heb geprobeerd de analyse uit te voeren in RStudio, maar dit lukte mij niet door installatieproblemen met <code>glpkAPI</code>. Hierdoor kon ik geen figuren reproduceren. De code en data zijn beschikbaar, maar de uitvoering heeft aanpassingen nodig.</p>
 
 </div>
 </div>

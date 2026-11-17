@@ -25,17 +25,14 @@ portfolio-repository
 screenshot-1-portfolio-structuur
 screenshot-2-readme-1
 analyse-reproduceren
-reproduceerbaarheid-beoordelen
-sql
-r-package
-uitleg-van-de-analyse
-stappenplan-dose-response-analyse
 data-inlezen
 data-inspecteren
 scatterplot-van-de-ruwe-data
 data-normaliseren
 scatterplot-van-de-genormaliseerde-data
-reproduceerbaarheid-van-een-wetenschappelijk-artikel
+uitleg-van-de-analyse
+stappenplan-dose-response-analyse
+reproduceerbaarheid-beoordelen
 artikel
 onderzoeksvraag
 methode-en-resultaten
@@ -44,3 +41,5 @@ beoordeling-van-de-r-code
 beschrijving-van-de-code
 leesbaarheid
 reproduceerbaarheid
+sql
+r-package
