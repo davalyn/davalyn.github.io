@@ -42,9 +42,9 @@ Life Sciences student with a strong interest in bioinformatics, computational bi
 
 ### Bachelor's Degree in Life Sciences
 
-**[HU University of Applied Sciences]** | The Netherlands
+**HU University of Applied Sciences** | The Netherlands
 
-*[2024] – Present*
+*2024 – Present*
 
 Relevant coursework:
 
@@ -87,7 +87,7 @@ Relevant coursework:
 
 ### Fresh Department Responsible | Albert Heijn
 
-* [June 2025] – Present | [Nieuwegein]
+* June 2025 – Present | Nieuwegein
 
 - Responsible for the daily operations and overall quality management of the fresh produce department.
 - Conducted twice-daily quality controls (QC) across all products to ensure product freshness, quality and compliance with company standards.
@@ -98,7 +98,7 @@ Relevant coursework:
 
 ## Certifications & Courses
 
-- Data Science for Biology – [Institution] (Ongoing)
+- Data Science for Biology – Life Science
 - Successfully completed all first year courses and obtained the propaedeutic certificate (60 ECTS credits).
 
 ---
