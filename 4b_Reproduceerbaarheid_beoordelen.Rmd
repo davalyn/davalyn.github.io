@@ -1,1 +1,52 @@
 # Reproduceerbaarheid beoordelen
+
+## Artikel
+
+Marinos et al. (2020). *Defining the nutritional input for genome-scale metabolic models: A roadmap.*
+
+[Artikel](https://doi.org/10.1371/journal.pone.0236890) | [GitHub-repository](https://github.com/maringos/StepDiet)
+
+### Onderzoeksvraag
+
+Hoe kan de voedingssamenstelling van een groeimedium nauwkeurig worden vertaald naar invoergegevens voor genome-scale metabolic models?
+
+### Methode en resultaten
+
+De onderzoekers ontwikkelden een stappenplan met *E. coli* en het groeimedium Lysogeny Broth (LB) als voorbeeld. Met R verwerkten ze voedingsgegevens en analyseerden ze metabole modellen.
+
+De resultaten laten zien dat nauwkeurige voedingsgegevens belangrijk zijn voor betrouwbare voorspellingen van bacteriële groei en metabolisme.
+
+---
+
+## Transparantiecriteria
+
+| Criterium | Beoordeling | Toelichting |
+|---|---|---|
+| Study Purpose | Ja | Het onderzoeksdoel staat duidelijk beschreven in de introductie. |
+| Data Availability Statement | Ja | Er is een aparte verklaring over de beschikbaarheid van data. |
+| Data Location | GitHub | Data en R-scripts zijn beschikbaar via de [GitHub-repository](https://github.com/maringos/StepDiet). |
+| Study Location | Nee | Er wordt geen specifieke geografische onderzoekslocatie vermeld. |
+| Author Review | Ja | De auteurs vermelden professionele e-mailadressen en universitaire affiliaties. |
+| Ethics Statement | Nee | Er is geen aparte ethische verklaring opgenomen. |
+| Funding Statement | Ja | De financiering van de Deutsche Forschungsgemeinschaft wordt vermeld. |
+| Code Availability | Ja | De R-scripts zijn openbaar beschikbaar op GitHub. |
+
+---
+
+## Beoordeling van de R-code
+
+### Beschrijving van de code
+
+De R-code gebruikt een metabool model van *E. coli* om te onderzoeken hoe voedingsstoffen de voorspelde bacteriële groei beïnvloeden. Hiervoor wordt Flux Balance Analysis (FBA) gebruikt. De code berekent het effect van extra voedingsstoffen en maakt hiervan staafdiagrammen.
+
+### Leesbaarheid
+
+**Score: 3/5**
+
+De code bevat duidelijke commentaren en is verdeeld in onderdelen. Sommige functies en berekeningen zijn echter complex. Ook moeten de bestandspaden worden aangepast.
+
+### Reproduceerbaarheid
+
+**Score: 2/5**
+
+Ik heb geprobeerd de analyse uit te voeren in RStudio, maar dit lukte door installatieproblemen met het benodigde pakket `glpkAPI` niet. Hierdoor kon ik geen figuur reproduceren. De code en data zijn beschikbaar, maar de uitvoering vereist aanpassingen aan de softwareomgeving en bestandspaden.

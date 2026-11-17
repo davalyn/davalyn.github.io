@@ -43,7 +43,7 @@ ggplot(data, aes(
 ## Data normaliseren
 
 ```{r}
-negative_mean <- mean(data$RawData[data$expType == "controlNegative"],na.rm = TRUE)
+negative_mean <- mean(data$RawData[data$expType == "controlNegative"], na.rm = TRUE)
 
 data$normalised <- data$RawData / negative_mean
 
