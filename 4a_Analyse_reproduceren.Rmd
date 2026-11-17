@@ -1,1 +1,81 @@
+---
+title: "Opdracht 4a – Reproducible Science"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+library(readxl)
+library(ggplot2)
+```
+
 # Analyse reproduceren
+
+## Data inlezen
+
+```{r}
+data <- read_excel("data/CE.LIQ.FLOW.062_Tidydata.xlsx", sheet = "expParameters")
+```
+
+## Data inspecteren
+
+```{r}
+head(data)
+str(data)
+```
+
+## Scatterplot van de ruwe data
+
+```{r}
+data$compConcentration <- as.numeric(data$compConcentration)
+
+ggplot(data, aes(
+  x = compConcentration, y = RawData,
+  colour = compName, shape = expType)) +
+  geom_point(position = position_jitter(width = 0.1, height = 0.5), alpha = 0.7) +
+  scale_x_log10() +
+  labs(x = "Concentration (log10)", y = "RawData",
+    colour = "Chemical", shape = "Experiment type") +
+  theme_bw()
+```
+
+## Data normaliseren
+
+```{r}
+negative_mean <- mean(data$RawData[data$expType == "controlNegative"],na.rm = TRUE)
+
+data$normalised <- data$RawData / negative_mean
+
+mean(data$normalised[data$expType == "controlNegative"], na.rm = TRUE)
+```
+
+## Scatterplot van de genormaliseerde data
+
+```{r}
+ggplot(data, aes(x = compConcentration, y = normalised,
+  colour = compName, shape = expType)) +
+  geom_point(position = position_jitter(width = 0.1, height = 0.01), alpha = 0.7) +
+  scale_x_log10() +
+  labs(x = "Concentration (log10)", y = "Normalised RawData",
+    colour = "Chemical", shape = "Experiment type") +
+  theme_bw()
+```
+
+## Uitleg van de analyse
+
+De negatieve controle in dit experiment is S-medium. Deze bevat geen geteste chemische stof en dient als baseline om de normale voortplanting te meten. De positieve controle is ethanol (concentratie 1.5) en dient om te controleren of het experiment een effect kan aantonen.
+
+De negatieve controle geeft de normale situatie weer, de positieve controle laat zien dat het experiment een effect kan detecteren en de vehicle control (ethanol, concentratie 0.5) controleert of het oplosmiddel zelf invloed heeft op de resultaten.
+
+De normalisatie zorgt ervoor dat het gemiddelde van de negatieve controle gelijk is aan 1. Hierdoor kunnen alle andere meetwaarden eenvoudig worden vergeleken met de normale situatie. Een waarde van 0.5 betekent bijvoorbeeld dat er 50% van het aantal nakomelingen is gemeten ten opzichte van de negatieve controle.
+
+## Stappenplan dose-response analyse
+
+Voor vervolgonderzoek kan een dose-response analyse worden uitgevoerd om de IC50 te bepalen. Hiervoor gebruiken we het R-package `drc`.
+
+1. Installeer en laad het package `drc`.
+2. Selecteer één chemische stof en gebruik de bijbehorende concentraties en genormaliseerde meetwaarden.
+3. Maak een dose-response model met een vierparameter log-logistisch model (`LL.4`).
+4. Bekijk de dose-response curve.
+5. Bereken de IC50 met de functie `ED()`.

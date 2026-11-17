@@ -28,3 +28,10 @@ analyse-reproduceren
 reproduceerbaarheid-beoordelen
 sql
 r-package
+uitleg-van-de-analyse
+stappenplan-dose-response-analyse
+data-inlezen
+data-inspecteren
+scatterplot-van-de-ruwe-data
+data-normaliseren
+scatterplot-van-de-genormaliseerde-data
