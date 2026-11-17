@@ -189,7 +189,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6" data-path="analyse-reproduceren.html"><a href="analyse-reproduceren.html#uitleg-van-de-analyse"><i class="fa fa-check"></i><b>6.6</b> Uitleg van de analyse</a></li>
 <li class="chapter" data-level="6.7" data-path="analyse-reproduceren.html"><a href="analyse-reproduceren.html#stappenplan-dose-response-analyse"><i class="fa fa-check"></i><b>6.7</b> Stappenplan dose-response analyse</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="reproduceerbaarheid-beoordelen.html"><a href="reproduceerbaarheid-beoordelen.html"><i class="fa fa-check"></i><b>7</b> Reproduceerbaarheid beoordelen</a></li>
+<li class="chapter" data-level="7" data-path="reproduceerbaarheid-beoordelen.html"><a href="reproduceerbaarheid-beoordelen.html"><i class="fa fa-check"></i><b>7</b> Reproduceerbaarheid beoordelen</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="reproduceerbaarheid-beoordelen.html"><a href="reproduceerbaarheid-beoordelen.html#artikel"><i class="fa fa-check"></i><b>7.1</b> Artikel</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="reproduceerbaarheid-beoordelen.html"><a href="reproduceerbaarheid-beoordelen.html#onderzoeksvraag"><i class="fa fa-check"></i><b>7.1.1</b> Onderzoeksvraag</a></li>
+<li class="chapter" data-level="7.1.2" data-path="reproduceerbaarheid-beoordelen.html"><a href="reproduceerbaarheid-beoordelen.html#methode-en-resultaten"><i class="fa fa-check"></i><b>7.1.2</b> Methode en resultaten</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="reproduceerbaarheid-beoordelen.html"><a href="reproduceerbaarheid-beoordelen.html#transparantiecriteria"><i class="fa fa-check"></i><b>7.2</b> Transparantiecriteria</a></li>
+<li class="chapter" data-level="7.3" data-path="reproduceerbaarheid-beoordelen.html"><a href="reproduceerbaarheid-beoordelen.html#beoordeling-van-de-r-code"><i class="fa fa-check"></i><b>7.3</b> Beoordeling van de R-code</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="reproduceerbaarheid-beoordelen.html"><a href="reproduceerbaarheid-beoordelen.html#beschrijving-van-de-code"><i class="fa fa-check"></i><b>7.3.1</b> Beschrijving van de code</a></li>
+<li class="chapter" data-level="7.3.2" data-path="reproduceerbaarheid-beoordelen.html"><a href="reproduceerbaarheid-beoordelen.html#leesbaarheid"><i class="fa fa-check"></i><b>7.3.2</b> Leesbaarheid</a></li>
+<li class="chapter" data-level="7.3.3" data-path="reproduceerbaarheid-beoordelen.html"><a href="reproduceerbaarheid-beoordelen.html#reproduceerbaarheid"><i class="fa fa-check"></i><b>7.3.3</b> Reproduceerbaarheid</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>8</b> SQL</a></li>
 <li class="chapter" data-level="9" data-path="r-package.html"><a href="r-package.html"><i class="fa fa-check"></i><b>9</b> R package</a></li>
 </ul>
@@ -287,13 +301,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="data-normaliseren" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Data normaliseren<a href="analyse-reproduceren.html#data-normaliseren" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="analyse-reproduceren.html#cb7-1" tabindex="-1"></a>negative_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(</span>
-<span id="cb7-2"><a href="analyse-reproduceren.html#cb7-2" tabindex="-1"></a>  data<span class="sc">$</span>RawData[data<span class="sc">$</span>expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>],</span>
-<span id="cb7-3"><a href="analyse-reproduceren.html#cb7-3" tabindex="-1"></a>  <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="analyse-reproduceren.html#cb7-1" tabindex="-1"></a>negative_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>RawData[data<span class="sc">$</span>expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-2"><a href="analyse-reproduceren.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="analyse-reproduceren.html#cb7-3" tabindex="-1"></a>data<span class="sc">$</span>normalised <span class="ot">&lt;-</span> data<span class="sc">$</span>RawData <span class="sc">/</span> negative_mean</span>
 <span id="cb7-4"><a href="analyse-reproduceren.html#cb7-4" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="analyse-reproduceren.html#cb7-5" tabindex="-1"></a>data<span class="sc">$</span>normalised <span class="ot">&lt;-</span> data<span class="sc">$</span>RawData <span class="sc">/</span> negative_mean</span>
-<span id="cb7-6"><a href="analyse-reproduceren.html#cb7-6" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="analyse-reproduceren.html#cb7-7" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>normalised[data<span class="sc">$</span>expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb7-5"><a href="analyse-reproduceren.html#cb7-5" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>normalised[data<span class="sc">$</span>expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 </div>
 <div id="scatterplot-van-de-genormaliseerde-data" class="section level2 hasAnchor" number="6.5">
@@ -309,19 +321,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="uitleg-van-de-analyse" class="section level2 hasAnchor" number="6.6">
 <h2><span class="header-section-number">6.6</span> Uitleg van de analyse<a href="analyse-reproduceren.html#uitleg-van-de-analyse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>De negatieve controle in dit experiment is S-medium. Deze bevat geen geteste chemische stof en dient als baseline om de normale voortplanting te meten. De positieve controle is ethanol (concentratie 1.5) en dient om te controleren of het experiment een effect kan aantonen.</p>
-<p>De negatieve controle geeft de normale situatie weer, de positieve controle laat zien dat het experiment een effect kan detecteren en de vehicle control (ethanol, concentratie 0.5) controleert of het oplosmiddel zelf invloed heeft op de resultaten.</p>
-<p>De normalisatie zorgt ervoor dat het gemiddelde van de negatieve controle gelijk is aan 1. Hierdoor kunnen alle andere meetwaarden eenvoudig worden vergeleken met de normale situatie. Een waarde van 0.5 betekent bijvoorbeeld dat er 50% van het aantal nakomelingen is gemeten ten opzichte van de negatieve controle.</p>
+<ul>
+<li><p>De negatieve controle in dit experiment is S-medium zonder toegevoegde chemische stoffen. Dit dient als baseline om de normale voortplanting te meten. De positieve controle is ethanol en dient om te controleren of het experiment een bepaald effect kan aantonen.</p></li>
+<li><p>De negatieve controle geeft de normale situatie weer. De positieve controle laat zien of het experiment een effect kan detecteren. De vehicle control controleert of het oplosmiddel zelf invloed heeft op de resultaten.</p></li>
+<li><p>De normalisatie zorgt ervoor dat het gemiddelde van de negatieve controle gelijk wordt aan 1. Zo kunnen alle andere meetwaarden op een eerlijke manier worden vergeleken met de normale situatie.</p></li>
+</ul>
 </div>
 <div id="stappenplan-dose-response-analyse" class="section level2 hasAnchor" number="6.7">
 <h2><span class="header-section-number">6.7</span> Stappenplan dose-response analyse<a href="analyse-reproduceren.html#stappenplan-dose-response-analyse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Voor vervolgonderzoek kan een dose-response analyse worden uitgevoerd om de IC50 te bepalen. Hiervoor gebruiken we het R-package <code>drc</code>.</p>
+<p>Voor vervolgonderzoek kan een dose-response analyse worden uitgevoerd om de IC50 te bepalen (met behulp van R-package <code>drc</code>)</p>
 <ol style="list-style-type: decimal">
-<li>Installeer en laad het package <code>drc</code>.</li>
-<li>Selecteer één chemische stof en gebruik de bijbehorende concentraties en genormaliseerde meetwaarden.</li>
-<li>Maak een dose-response model met een vierparameter log-logistisch model (<code>LL.4</code>).</li>
-<li>Bekijk de dose-response curve.</li>
-<li>Bereken de IC50 met de functie <code>ED()</code>.</li>
+<li>Het package <code>drc</code> installeren.</li>
+<li>Een chemische stof selecteren en de bijbehorende concentraties &amp; waarden gebruiken</li>
+<li>Een dose-response model maken met een log-logistisch model</li>
+<li>De dose-response curve bekijken</li>
+<li>IC50 berekenen.</li>
 </ol>
 
 </div>

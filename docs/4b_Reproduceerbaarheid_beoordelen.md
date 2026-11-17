@@ -12,9 +12,7 @@ Hoe kan de voedingssamenstelling van een groeimedium nauwkeurig worden vertaald 
 
 ### Methode en resultaten
 
-De onderzoekers ontwikkelden een stappenplan met *E. coli* en het groeimedium Lysogeny Broth (LB) als voorbeeld. Met R verwerkten ze voedingsgegevens en analyseerden ze metabole modellen.
-
-De resultaten laten zien dat nauwkeurige voedingsgegevens belangrijk zijn voor betrouwbare voorspellingen van bacteriële groei en metabolisme.
+De onderzoekers ontwikkelden een stappenplan met E. coli en LB medium. Met R analyseerden ze de voedingssamenstelling en voorspelden ze de bacteriële groei. De resultaten laten zien dat verschillende voedingsstoffen, zoals aminozuren en koolhydraten invloed hebben op de voorspelde groei.
 
 ---
 
