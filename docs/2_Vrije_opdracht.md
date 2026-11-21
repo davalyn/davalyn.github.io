@@ -26,7 +26,7 @@ Met 32 uur voor dit project, wordt dit mijn planning:
 
 Ik wil een openbare genexpressiedataset gebruiken om de onderstaande onderzoeksvraag te beantwoorden:
 
-*"Can machine learning algorithms distinguish between healthy and cancerous tissue based on gene expression data?"*
+*"Can machine learning algorithms distinguish between healthy and COVID-19-affected tissue based on gene expression data?"*
 
 Het eindproduct wordt een zelfgeschreven R Markdown waarin ik de gebruikte code, dataverwerking, visualisaties, resultaten en conclusies presenteer. Hiermee laat ik zien dat ik zelfstandig een dataset kan verwerken, machine learning kan toepassen en de resultaten correct kan interpreteren.
 

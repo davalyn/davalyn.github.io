@@ -9,6 +9,8 @@ output:
         collapse: section
 ---
 
+<img src="images/welcome_picture.jpg" alt="" width="60%" />
+
 # Welcome {-}
 
 Welcome to my Data Science for Biology portfolio.
