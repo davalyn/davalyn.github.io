@@ -59,27 +59,17 @@ Relevant coursework:
 
 ## Projects & Research
 
-### RNA-seq Analysis: Liver and Kidney Tissue Comparison
-
-**Data Science for Biology | OPRB Project**
+### RNA-seq and Single-cell RNA-seq Analysis
+**Data Science for Biology | Coursework & OPRB Project**
 
 - Analysed RNA-seq data to investigate differences in gene expression between liver and kidney tissue.
-- Used Rsubread and featureCounts as part of the read-counting workflow.
-- Applied DESeq2 for normalisation and differential gene expression analysis.
-- Used Principal Component Analysis (PCA) to investigate patterns and variation in the dataset.
-- Created volcano plots to visualise differentially expressed genes.
-- Performed Gene Ontology (GO) term enrichment analysis to investigate biological functions.
-- Documented the analysis and workflow using R Markdown.
-
-### Single-cell RNA-seq Analysis
-
-**Data Science for Biology | Coursework**
-
-- Worked with single-cell RNA-seq data using the Seurat package in R.
-- Performed quality control and filtering of cells.
-- Applied normalisation and scaling.
-- Identified highly variable features.
-- Used PCA to explore variation and structure within the dataset.
+- Used **Rsubread** and **featureCounts** for read alignment and quantification.
+- Applied **DESeq2** for data normalisation and differential gene expression analysis.
+- Performed **Principal Component Analysis (PCA)** to explore patterns and variation in gene expression data.
+- Created **volcano plots** to visualise differentially expressed genes.
+- Conducted **Gene Ontology (GO) enrichment analysis** to identify associated biological functions.
+- Worked with single-cell RNA-seq data using the **Seurat** package in R, performing quality control, cell filtering, normalisation, scaling and identification of highly variable features.
+- Used **R Markdown** to document analytical workflows and support reproducible research.
 
 ---
 
