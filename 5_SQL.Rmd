@@ -10,7 +10,7 @@ library(dslabs)
 
 dengue <- read_csv("data/dengue_data.csv", skip = 11)
 flu <- read_csv("data/flu_data.csv", skip = 11)
-gapminder_data <- dslabs::gapminder
+gapminder_data <- gapminder
 ```
 
 ## Checking and making the datasets tidy
@@ -108,3 +108,48 @@ write_csv(dengue_yearly, "data/dengue_yearly.csv")
 write_csv(flu_yearly, "data/flu_yearly.csv")
 write_csv(gapminder_tidy, "data/gapminder.csv")
 ```
+
+## Importing and joining the datasets using SQL
+
+The three CSV files were imported into the PostgreSQL database `workflowsdb` using DBeaver. Each dataset was stored in a separate table: `dengue_yearly`, `flu_yearly` and `gapminder`.
+
+We used SQL queries to inspect the tables and combine the datasets using `INNER JOIN`, matching records based on the shared `country` and `year` variables.
+
+```sql
+SELECT *
+FROM dengue_yearly AS dengue
+INNER JOIN flu_yearly AS flu
+    ON dengue.country = flu.country
+    AND dengue.year = flu.year
+INNER JOIN gapminder AS gapminder
+    ON dengue.country = gapminder.country
+    AND dengue.year = gapminder.year;
+```
+
+## Visualizing the joined data
+
+We load the joined dataset exported from PostgreSQL as a CSV file and visualize the yearly dengue and flu data for the four countries. Two separate line graphs are created to show how dengue and flu values change over time.
+
+```{r visualize_dat, warning=FALSE, message=FALSE}
+joined_data <- read_csv("data/joined_data.csv")
+
+# Dengue
+ggplot(joined_data, aes(x = year, y = dengue, color = country)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Dengue over time", x = "Year", y = "Average dengue") +
+  theme_minimal()
+
+# Flu
+ggplot(joined_data, aes(x = year, y = flu, color = country)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Flu over time", x = "Year", y = "Average flu") +
+  theme_minimal()
+```
+
+## Conclusion
+
+The datasets were successfully combined using PostgreSQL and imported into R for visualization. The line graphs show how dengue and flu values change over time across the selected countries.
+
+This assignment helped me gain experience with importing, manipulating and combining datasets using SQL and R. I also learned how to use the joined data to create visualizations.

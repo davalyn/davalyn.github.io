@@ -218,6 +218,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="sql.html"><a href="sql.html#checking-country-names"><i class="fa fa-check"></i><b>8.4</b> Checking country names</a></li>
 <li class="chapter" data-level="8.5" data-path="sql.html"><a href="sql.html#preparing-the-datasets-for-joining"><i class="fa fa-check"></i><b>8.5</b> Preparing the datasets for joining</a></li>
 <li class="chapter" data-level="8.6" data-path="sql.html"><a href="sql.html#saving-the-datasets"><i class="fa fa-check"></i><b>8.6</b> Saving the datasets</a></li>
+<li class="chapter" data-level="8.7" data-path="sql.html"><a href="sql.html#importing-and-joining-the-datasets-using-sql"><i class="fa fa-check"></i><b>8.7</b> Importing and joining the datasets using SQL</a></li>
+<li class="chapter" data-level="8.8" data-path="sql.html"><a href="sql.html#visualizing-the-joined-data"><i class="fa fa-check"></i><b>8.8</b> Visualizing the joined data</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="r-package.html"><a href="r-package.html"><i class="fa fa-check"></i><b>9</b> R package</a></li>
 </ul>
@@ -247,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb39-3"><a href="sql.html#cb39-3" tabindex="-1"></a></span>
 <span id="cb39-4"><a href="sql.html#cb39-4" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/dengue_data.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">11</span>)</span>
 <span id="cb39-5"><a href="sql.html#cb39-5" tabindex="-1"></a>flu <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/flu_data.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">11</span>)</span>
-<span id="cb39-6"><a href="sql.html#cb39-6" tabindex="-1"></a>gapminder_data <span class="ot">&lt;-</span> dslabs<span class="sc">::</span>gapminder</span></code></pre></div>
+<span id="cb39-6"><a href="sql.html#cb39-6" tabindex="-1"></a>gapminder_data <span class="ot">&lt;-</span> gapminder</span></code></pre></div>
 </div>
 <div id="checking-and-making-the-datasets-tidy" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> Checking and making the datasets tidy<a href="sql.html#checking-and-making-the-datasets-tidy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -312,6 +314,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="sql.html#cb43-1" tabindex="-1"></a><span class="fu">write_csv</span>(dengue_yearly, <span class="st">&quot;data/dengue_yearly.csv&quot;</span>)</span>
 <span id="cb43-2"><a href="sql.html#cb43-2" tabindex="-1"></a><span class="fu">write_csv</span>(flu_yearly, <span class="st">&quot;data/flu_yearly.csv&quot;</span>)</span>
 <span id="cb43-3"><a href="sql.html#cb43-3" tabindex="-1"></a><span class="fu">write_csv</span>(gapminder_tidy, <span class="st">&quot;data/gapminder.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="importing-and-joining-the-datasets-using-sql" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> Importing and joining the datasets using SQL<a href="sql.html#importing-and-joining-the-datasets-using-sql" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The three CSV files were imported into the PostgreSQL database <code>workflowsdb</code> using DBeaver. Each dataset was stored in a separate table: <code>dengue_yearly</code>, <code>flu_yearly</code> and <code>gapminder</code>.</p>
+<p>We used SQL queries to inspect the tables and combine the datasets using <code>INNER JOIN</code>, matching records based on the shared <code>country</code> and <code>year</code> variables.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb44-1"><a href="sql.html#cb44-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb44-2"><a href="sql.html#cb44-2" tabindex="-1"></a><span class="kw">FROM</span> dengue_yearly <span class="kw">AS</span> dengue</span>
+<span id="cb44-3"><a href="sql.html#cb44-3" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> flu_yearly <span class="kw">AS</span> flu</span>
+<span id="cb44-4"><a href="sql.html#cb44-4" tabindex="-1"></a>    <span class="kw">ON</span> dengue.country <span class="op">=</span> flu.country</span>
+<span id="cb44-5"><a href="sql.html#cb44-5" tabindex="-1"></a>    <span class="kw">AND</span> dengue.<span class="dt">year</span> <span class="op">=</span> flu.<span class="dt">year</span></span>
+<span id="cb44-6"><a href="sql.html#cb44-6" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> gapminder <span class="kw">AS</span> gapminder</span>
+<span id="cb44-7"><a href="sql.html#cb44-7" tabindex="-1"></a>    <span class="kw">ON</span> dengue.country <span class="op">=</span> gapminder.country</span>
+<span id="cb44-8"><a href="sql.html#cb44-8" tabindex="-1"></a>    <span class="kw">AND</span> dengue.<span class="dt">year</span> <span class="op">=</span> gapminder.<span class="dt">year</span>;</span></code></pre></div>
+</div>
+<div id="visualizing-the-joined-data" class="section level2 hasAnchor" number="8.8">
+<h2><span class="header-section-number">8.8</span> Visualizing the joined data<a href="sql.html#visualizing-the-joined-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We load the joined dataset exported from PostgreSQL as a CSV file and visualize the yearly dengue and flu data for the four countries. Two separate line graphs are created to show how dengue and flu values change over time.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="sql.html#cb45-1" tabindex="-1"></a>joined_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/joined_data.csv&quot;</span>)</span>
+<span id="cb45-2"><a href="sql.html#cb45-2" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="sql.html#cb45-3" tabindex="-1"></a><span class="co"># Dengue</span></span>
+<span id="cb45-4"><a href="sql.html#cb45-4" tabindex="-1"></a><span class="fu">ggplot</span>(joined_data, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> dengue, <span class="at">color =</span> country)) <span class="sc">+</span></span>
+<span id="cb45-5"><a href="sql.html#cb45-5" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb45-6"><a href="sql.html#cb45-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb45-7"><a href="sql.html#cb45-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Dengue over time&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Average dengue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb45-8"><a href="sql.html#cb45-8" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="5_SQL_files/figure-html/visualize_dat-1.png" alt="" width="672" /></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="sql.html#cb46-1" tabindex="-1"></a><span class="co"># Flu</span></span>
+<span id="cb46-2"><a href="sql.html#cb46-2" tabindex="-1"></a><span class="fu">ggplot</span>(joined_data, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> flu, <span class="at">color =</span> country)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="sql.html#cb46-3" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb46-4"><a href="sql.html#cb46-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb46-5"><a href="sql.html#cb46-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Flu over time&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Average flu&quot;</span>) <span class="sc">+</span></span>
+<span id="cb46-6"><a href="sql.html#cb46-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="5_SQL_files/figure-html/visualize_dat-2.png" alt="" width="672" /></p>
 
 </div>
 </div>
