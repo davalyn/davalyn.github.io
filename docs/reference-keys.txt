@@ -59,3 +59,11 @@ visualizing-the-joined-data
 conclusion
 r-package
 geparametrizeerde-rmd
+introductie
+de-functies
+opbouw-van-het-package
+documentatie
+testen
+vignette
+publiceren-op-github
+reflectie

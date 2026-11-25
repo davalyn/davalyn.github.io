@@ -17,7 +17,6 @@ data <- read_excel("data/CE.LIQ.FLOW.062_Tidydata.xlsx", sheet = "expParameters"
 
 ```{r}
 head(data)
-str(data)
 ```
 
 ## Scatterplot van de ruwe data
