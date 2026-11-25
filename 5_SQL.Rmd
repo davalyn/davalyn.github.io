@@ -1,1 +1,127 @@
 # SQL
+
+```{r setup}
+library(tidyverse)
+library(dslabs)
+```
+
+## 1. Loading the datasets
+
+We load the dengue and influenza datasets from local CSV files.
+The Gapminder dataset is loaded from the dslabs package.
+
+```{r}
+dengue <- read_csv("data/dengue_data.csv", skip = 11)
+
+flu <- read_csv("data/flu_data.csv", skip = 11)
+
+gapminder_data <- dslabs::gapminder
+```
+
+## 2. Checking and tidying the datasets
+
+The dengue and flu datasets are initially stored in wide format, 
+with each country represented by a separate column. We transform 
+these datasets into long format using `pivot_longer()`.
+
+```{r}
+dengue_tidy <- dengue %>%
+  pivot_longer(
+    cols = -Date,
+    names_to = "country",
+    values_to = "dengue"
+  )
+
+flu_tidy <- flu %>%
+  pivot_longer(
+    cols = -Date,
+    names_to = "country",
+    values_to = "flu"
+  )
+```
+
+## 3. Standardizing country and date variables
+
+The dengue and flu datasets contain a weekly `Date` variable, while Gapminder contains a yearly `year` variable. Additionally, `country` is stored as a factor in Gapminder and as a character in the other datasets.
+
+To make the datasets compatible for joining, we standardize these variables.
+
+```{r}
+dengue_tidy <- dengue_tidy %>%
+  mutate(
+    country = as.character(country),
+    year = as.integer(substr(Date, 1, 4))
+  )
+
+flu_tidy <- flu_tidy %>%
+  mutate(
+    country = as.character(country),
+    year = as.integer(substr(Date, 1, 4))
+  )
+
+gapminder_tidy <- gapminder_data %>%
+  mutate(country = as.character(country))
+
+# Check data types
+class(dengue_tidy$country)
+class(flu_tidy$country)
+class(gapminder_tidy$country)
+
+class(dengue_tidy$year)
+class(flu_tidy$year)
+class(gapminder_tidy$year)
+```
+
+The datasets now have matching data types for `country` (character) and `year` (integer). The original weekly `Date` variable is retained in the dengue and flu datasets.
+
+## 4. Checking country names
+
+We check the country names in each dataset to see which countries are included.
+
+```{r}
+sort(unique(dengue_tidy$country))
+sort(unique(flu_tidy$country))
+sort(unique(gapminder_tidy$country))
+```
+
+The country names are consistent across the three datasets. However, the datasets contain different numbers of countries. Therefore, we will use only countries that are present in all three datasets.
+
+## 5. Preparing the datasets for joining
+
+Only countries present in all three datasets are selected. The weekly dengue and flu data are then summarized into yearly averages to match the yearly Gapminder data.
+
+```{r}
+# Select countries present in all three datasets
+common_countries <- unique(dengue_tidy$country[
+  dengue_tidy$country %in% flu_tidy$country &
+  dengue_tidy$country %in% gapminder_tidy$country])
+
+# Filter all datasets
+dengue_tidy <- dengue_tidy %>%
+  filter(country %in% common_countries)
+
+flu_tidy <- flu_tidy %>%
+  filter(country %in% common_countries)
+
+gapminder_tidy <- gapminder_tidy %>%
+  filter(country %in% common_countries)
+
+# Calculate yearly averages
+dengue_yearly <- dengue_tidy %>%
+  group_by(country, year) %>%
+  summarise(dengue = mean(dengue, na.rm = TRUE), .groups = "drop")
+
+flu_yearly <- flu_tidy %>%
+  group_by(country, year) %>%
+  summarise(flu = mean(flu, na.rm = TRUE), .groups = "drop")
+```
+
+## 6. Saving the datasets
+
+The three prepared datasets are saved as CSV files so they can be imported into PostgreSQL.
+
+```{r}
+write_csv(dengue_yearly, "data/dengue_yearly.csv")
+write_csv(flu_yearly, "data/flu_yearly.csv")
+write_csv(gapminder_tidy, "data/gapminder.csv")
+```
