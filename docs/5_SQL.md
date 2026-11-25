@@ -146,3 +146,9 @@ ggplot(joined_data, aes(x = year, y = flu, color = country)) +
 ```
 
 <img src="5_SQL_files/figure-html/visualize_dat-2.png" alt="" width="672" />
+
+## Conclusion
+
+The datasets were successfully combined using PostgreSQL and imported into R for visualization. The line graphs show how dengue and flu values change over time across the selected countries.
+
+This assignment helped me gain experience with importing, manipulating and combining datasets using SQL and R. I also learned how to use the joined data to create visualizations.

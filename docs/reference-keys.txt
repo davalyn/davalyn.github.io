@@ -56,4 +56,6 @@ preparing-the-datasets-for-joining
 saving-the-datasets
 importing-and-joining-the-datasets-using-sql
 visualizing-the-joined-data
+conclusion
 r-package
+geparametrizeerde-rmd
