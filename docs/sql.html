@@ -210,7 +210,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.3" data-path="reproduceerbaarheid-beoordelen.html"><a href="reproduceerbaarheid-beoordelen.html#reproduceerbaarheid"><i class="fa fa-check"></i><b>7.3.3</b> Reproduceerbaarheid</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>8</b> SQL</a></li>
+<li class="chapter" data-level="8" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>8</b> SQL</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="sql.html"><a href="sql.html#loading-the-datasets"><i class="fa fa-check"></i><b>8.1</b> Loading the datasets</a></li>
+<li class="chapter" data-level="8.2" data-path="sql.html"><a href="sql.html#checking-and-making-the-datasets-tidy"><i class="fa fa-check"></i><b>8.2</b> Checking and making the datasets tidy</a></li>
+<li class="chapter" data-level="8.3" data-path="sql.html"><a href="sql.html#standardizing-country-and-date-variables"><i class="fa fa-check"></i><b>8.3</b> Standardizing country and date variables</a></li>
+<li class="chapter" data-level="8.4" data-path="sql.html"><a href="sql.html#checking-country-names"><i class="fa fa-check"></i><b>8.4</b> Checking country names</a></li>
+<li class="chapter" data-level="8.5" data-path="sql.html"><a href="sql.html#preparing-the-datasets-for-joining"><i class="fa fa-check"></i><b>8.5</b> Preparing the datasets for joining</a></li>
+<li class="chapter" data-level="8.6" data-path="sql.html"><a href="sql.html#saving-the-datasets"><i class="fa fa-check"></i><b>8.6</b> Saving the datasets</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="r-package.html"><a href="r-package.html"><i class="fa fa-check"></i><b>9</b> R package</a></li>
 </ul>
 
@@ -231,7 +239,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="sql" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">8</span> SQL<a href="sql.html#sql" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="loading-the-datasets" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Loading the datasets<a href="sql.html#loading-the-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We load the dengue and flu datasets from local CSV files. The Gapminder dataset is loaded from the dslabs package.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="sql.html#cb39-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb39-2"><a href="sql.html#cb39-2" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb39-3"><a href="sql.html#cb39-3" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="sql.html#cb39-4" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/dengue_data.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">11</span>)</span>
+<span id="cb39-5"><a href="sql.html#cb39-5" tabindex="-1"></a>flu <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/flu_data.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">11</span>)</span>
+<span id="cb39-6"><a href="sql.html#cb39-6" tabindex="-1"></a>gapminder_data <span class="ot">&lt;-</span> dslabs<span class="sc">::</span>gapminder</span></code></pre></div>
+</div>
+<div id="checking-and-making-the-datasets-tidy" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Checking and making the datasets tidy<a href="sql.html#checking-and-making-the-datasets-tidy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The dengue and flu datasets are initially stored in wide format, with each country represented by a separate column. We transform these datasets into long format using <code>pivot_longer()</code>.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="sql.html#cb40-1" tabindex="-1"></a>dengue_tidy <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="sql.html#cb40-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Date, <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;dengue&quot;</span>)</span>
+<span id="cb40-3"><a href="sql.html#cb40-3" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="sql.html#cb40-4" tabindex="-1"></a>flu_tidy <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span></span>
+<span id="cb40-5"><a href="sql.html#cb40-5" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Date,<span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;flu&quot;</span>)</span></code></pre></div>
+<p>The Gapminder dataset is already in tidy format.</p>
+</div>
+<div id="standardizing-country-and-date-variables" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Standardizing country and date variables<a href="sql.html#standardizing-country-and-date-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The dengue and flu datasets contain weekly dates, while Gapminder contains yearly data. We standardize the country and year variables to make the datasets compatible for joining.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="sql.html#cb41-1" tabindex="-1"></a>dengue_tidy <span class="ot">&lt;-</span> dengue_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb41-2"><a href="sql.html#cb41-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">as.character</span>(country), </span>
+<span id="cb41-3"><a href="sql.html#cb41-3" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">as.integer</span>(<span class="fu">substr</span>(Date, <span class="dv">1</span>, <span class="dv">4</span>)))</span>
+<span id="cb41-4"><a href="sql.html#cb41-4" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="sql.html#cb41-5" tabindex="-1"></a>flu_tidy <span class="ot">&lt;-</span> flu_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb41-6"><a href="sql.html#cb41-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">as.character</span>(country), </span>
+<span id="cb41-7"><a href="sql.html#cb41-7" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">as.integer</span>(<span class="fu">substr</span>(Date, <span class="dv">1</span>, <span class="dv">4</span>)))</span>
+<span id="cb41-8"><a href="sql.html#cb41-8" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="sql.html#cb41-9" tabindex="-1"></a>gapminder_tidy <span class="ot">&lt;-</span> gapminder_data <span class="sc">%&gt;%</span></span>
+<span id="cb41-10"><a href="sql.html#cb41-10" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">as.character</span>(country))</span></code></pre></div>
+<p>The datasets now have matching data types for <code>country</code> and <code>year</code>.</p>
+</div>
+<div id="checking-country-names" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Checking country names<a href="sql.html#checking-country-names" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The country names were checked across all three datasets using <code>unique()</code>. The datasets contain different numbers of countries, but four countries are present in all three: Argentina, Bolivia, Brazil and Mexico.</p>
+</div>
+<div id="preparing-the-datasets-for-joining" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Preparing the datasets for joining<a href="sql.html#preparing-the-datasets-for-joining" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Only countries present in all three datasets are selected. The weekly dengue and flu data are summarized into yearly averages to match the yearly Gapminder data.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="sql.html#cb42-1" tabindex="-1"></a><span class="co"># Select countries present in all three datasets</span></span>
+<span id="cb42-2"><a href="sql.html#cb42-2" tabindex="-1"></a>common_countries <span class="ot">&lt;-</span> <span class="fu">unique</span>(dengue_tidy<span class="sc">$</span>country[</span>
+<span id="cb42-3"><a href="sql.html#cb42-3" tabindex="-1"></a>  dengue_tidy<span class="sc">$</span>country <span class="sc">%in%</span> flu_tidy<span class="sc">$</span>country <span class="sc">&amp;</span></span>
+<span id="cb42-4"><a href="sql.html#cb42-4" tabindex="-1"></a>  dengue_tidy<span class="sc">$</span>country <span class="sc">%in%</span> gapminder_tidy<span class="sc">$</span>country])</span>
+<span id="cb42-5"><a href="sql.html#cb42-5" tabindex="-1"></a></span>
+<span id="cb42-6"><a href="sql.html#cb42-6" tabindex="-1"></a><span class="co"># Filter all datasets</span></span>
+<span id="cb42-7"><a href="sql.html#cb42-7" tabindex="-1"></a>dengue_tidy <span class="ot">&lt;-</span> dengue_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb42-8"><a href="sql.html#cb42-8" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> common_countries)</span>
+<span id="cb42-9"><a href="sql.html#cb42-9" tabindex="-1"></a></span>
+<span id="cb42-10"><a href="sql.html#cb42-10" tabindex="-1"></a>flu_tidy <span class="ot">&lt;-</span> flu_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb42-11"><a href="sql.html#cb42-11" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> common_countries)</span>
+<span id="cb42-12"><a href="sql.html#cb42-12" tabindex="-1"></a></span>
+<span id="cb42-13"><a href="sql.html#cb42-13" tabindex="-1"></a>gapminder_tidy <span class="ot">&lt;-</span> gapminder_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb42-14"><a href="sql.html#cb42-14" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> common_countries)</span>
+<span id="cb42-15"><a href="sql.html#cb42-15" tabindex="-1"></a></span>
+<span id="cb42-16"><a href="sql.html#cb42-16" tabindex="-1"></a><span class="co"># Calculate yearly averages</span></span>
+<span id="cb42-17"><a href="sql.html#cb42-17" tabindex="-1"></a>dengue_yearly <span class="ot">&lt;-</span> dengue_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb42-18"><a href="sql.html#cb42-18" tabindex="-1"></a>  <span class="fu">group_by</span>(country, year) <span class="sc">%&gt;%</span></span>
+<span id="cb42-19"><a href="sql.html#cb42-19" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">dengue =</span> <span class="fu">mean</span>(dengue, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)</span>
+<span id="cb42-20"><a href="sql.html#cb42-20" tabindex="-1"></a></span>
+<span id="cb42-21"><a href="sql.html#cb42-21" tabindex="-1"></a>flu_yearly <span class="ot">&lt;-</span> flu_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb42-22"><a href="sql.html#cb42-22" tabindex="-1"></a>  <span class="fu">group_by</span>(country, year) <span class="sc">%&gt;%</span></span>
+<span id="cb42-23"><a href="sql.html#cb42-23" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">flu =</span> <span class="fu">mean</span>(flu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)</span></code></pre></div>
+<p>The dengue and flu datasets now contain yearly averages for each country. This allows them to be joined with Gapminder using <code>country</code> and <code>year</code>.</p>
+</div>
+<div id="saving-the-datasets" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Saving the datasets<a href="sql.html#saving-the-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The three prepared datasets are saved as CSV files so they can be imported into PostgreSQL.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="sql.html#cb43-1" tabindex="-1"></a><span class="fu">write_csv</span>(dengue_yearly, <span class="st">&quot;data/dengue_yearly.csv&quot;</span>)</span>
+<span id="cb43-2"><a href="sql.html#cb43-2" tabindex="-1"></a><span class="fu">write_csv</span>(flu_yearly, <span class="st">&quot;data/flu_yearly.csv&quot;</span>)</span>
+<span id="cb43-3"><a href="sql.html#cb43-3" tabindex="-1"></a><span class="fu">write_csv</span>(gapminder_tidy, <span class="st">&quot;data/gapminder.csv&quot;</span>)</span></code></pre></div>
 
+</div>
 </div>
             </section>
 

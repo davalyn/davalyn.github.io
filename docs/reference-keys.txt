@@ -48,4 +48,10 @@ beschrijving-van-de-code
 leesbaarheid
 reproduceerbaarheid
 sql
+loading-the-datasets
+checking-and-making-the-datasets-tidy
+standardizing-country-and-date-variables
+checking-country-names
+preparing-the-datasets-for-joining
+saving-the-datasets
 r-package
