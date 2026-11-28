@@ -128,8 +128,36 @@ Albert Heijn, Nieuwegein, Netherlands | June 2025–Present
 
 ---
 
-## Additional Information
+## Future Career Plan
 
-**Languages:** Dutch – Fluent · English – Fluent · Russian – Native
+### Where would you like to work in 1 or 2 years? What would your dream job look like?
 
-**Interests:** Biomedical Data Science · Bioinformatics and Genomics · Machine Learning
+I would like to work as a junior data scientist or data engineer within the life sciences sector. I find it very interesting to solve biological problems using programming and data analysis. 
+
+In my ideal job, I would work with large biological datasets, such as RNA sequencing data. I want to be able to independently perform analyses and interpret the results to provide clear answers. I would also enjoy working alongside other data scientists in this field.
+
+### How prepared are you to start working towards your dream job? What skills do you already have?
+
+During my specialisation in Data Science, I have already built a foundation in programming, statistics, and the analysis and interpretation of biological data.
+
+I have extensive experience with R and RStudio, which I have used for data analysis, data visualisation and RNA sequencing analyses. I am also familiar with statistical tests, interpreting results and analysing differential gene expression.
+
+In addition, I have experience with:
+
+- Cleaning, processing and visualising datasets.
+- Performing statistical analyses in R.
+- Using Git and GitHub for version control and collaboration.
+- Creating reproducible analyses using R Markdown.
+- SQL and relational databases.
+- Documenting and presenting research results.
+
+These skills provide me with a solid foundation to further develop towards a career in data science.
+
+### Which skills would you still like or need to learn?
+
+The most important skills I would still like to develop are:
+
+- **Python:** This programming language is widely used in data science.
+- **Machine Learning:** Developing predictive models for large datasets.
+- **SQL:** Writing more complex queries and working more efficiently with databases.
+- **Advanced Bioinformatics:** Gaining more experience with genomic data, RNA sequencing and other similar techniques.
