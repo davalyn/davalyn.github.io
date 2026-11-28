@@ -16,93 +16,118 @@ Nieuwegein, UT
 
 ## Professional Summary
 
-Life Sciences student with a strong interest in bioinformatics, computational biology and biological data analysis. Experienced in using R to analyse and visualise biological datasets, including RNA-seq and single-cell RNA-seq data. Familiar with statistical analysis, differential gene expression, data normalisation and reproducible research workflows. Currently developing skills in Data Science for Biology, with a particular interest in applying computational methods to biological and biomedical research questions.
+Life Sciences student with a background in Biomedical Laboratory Research (BML) and a growing specialisation in Biomedical Data Science and Bioinformatics. Combines practical laboratory knowledge with strong skills in programming, statistical and exploratory data analysis, and biological data interpretation. Experienced in analysing bulk and single-cell RNA-seq data, visualising biological data, programming in R and Bash, developing custom R packages, building interactive Shiny applications, and creating reproducible workflows using R Markdown, Git and GitHub. Interested in applying statistical and computational methods to identify patterns, uncover biological insights and support data-driven research in biomedical datasets.
 
 ---
 
 ## Technical Skills
 
-**Programming Languages:** R, Bash, SQL (basic)
+**Programming:** R · Bash · SQL
 
-**Bioinformatics & Computational Biology:** RNA-seq analysis, single-cell RNA-seq analysis, differential gene expression, DESeq2, Seurat, Rsubread, featureCounts
+**Bioinformatics:** Single-cell/bulk RNA-seq · Differential gene expression · DESeq2 · Seurat
 
-**Statistical Methods:** Hypothesis testing, data normalisation, exploratory data analysis, Principal Component Analysis (PCA), statistical interpretation
+**Data Analysis & Statistics:** Parametric and non-parametric statistical tests · Independent and paired t-tests · ANOVA · Shapiro-Wilk test · Levene's test · Statistical significance testing · Data normalisation · Exploratory data analysis · PCA
 
-**Data Visualisation:** ggplot2, PCA plots, volcano plots, heatmaps
+**Data Visualisation:** ggplot2 · Volcano plots · Heatmaps
 
-**R Packages & Libraries:** tidyverse, DESeq2, Seurat, ggplot2, Rsubread
+**Development & Data Management:** R package development · Shiny · R Markdown · Git · GitHub · PostgreSQL · DBeaver
 
-**Data Management:** Git, GitHub, PostgreSQL, DBeaver, reproducible research
-
-**Development & Reporting:** R Markdown, RStudio, R package development (coursework), Shiny (basic)
+**Laboratory Skills:** Molecular and cellular biology · Microbiology · Biomedical laboratory techniques and experimental procedures
 
 ---
 
 ## Education
 
-### Bachelor's Degree in Life Sciences
+**BSc Life Sciences**  
+HU University of Applied Sciences, Netherlands | 2024–Present
 
-**HU University of Applied Sciences** | The Netherlands
+**Relevant Coursework:**  
+Molecular Cell Biology and Techniques · Microbiology, Immunology and Techniques · Gene Expression and Protein Analysis Techniques · Biomedical Theory and Techniques · Bioinformatics and Programming in R · Data Processing · Research Projects 1 and 2 · Data Science for Biology 1 and 2
 
-*2024 – Present*
-
-Relevant coursework:
-
-- Data Science for Biology
-- Bioinformatics
-- Statistical data analysis
-- Programming with R
-- Computational analysis of biological datasets
-- Reproducible research and data management
+Completed the first 3 years of the programme Biomedical Laboratory Research (BML) and obtained the propaedeutic certificate (60 ECTS).
 
 ---
 
 ## Projects & Research
 
-### RNA-seq and Single-cell RNA-seq Analysis
-**Data Science for Biology | Coursework & OPRB Project**
+### Bulk RNA-seq Analysis of Liver and Kidney Tissue
 
-- Analysed RNA-seq data to investigate differences in gene expression between liver and kidney tissue.
-- Used **Rsubread** and **featureCounts** for read alignment and quantification.
-- Applied **DESeq2** for data normalisation and differential gene expression analysis.
-- Performed **Principal Component Analysis (PCA)** to explore patterns and variation in gene expression data.
-- Created **volcano plots** to visualise differentially expressed genes.
-- Conducted **Gene Ontology (GO) enrichment analysis** to identify associated biological functions.
-- Worked with single-cell RNA-seq data using the **Seurat** package in R, performing quality control, cell filtering, normalisation, scaling and identification of highly variable features.
-- Used **R Markdown** to document analytical workflows and support reproducible research.
+Analysed bulk RNA-seq data to investigate differences in gene expression between liver and kidney tissue.
+
+**Methods & Tools:** Rsubread · featureCounts · DESeq2 · PCA · Volcano plots · Heatmaps · Gene Ontology (GO) enrichment analysis · R Markdown
+
+- Used Rsubread and featureCounts for read alignment and gene expression quantification.
+- Applied DESeq2 for data normalisation and differential gene expression analysis.
+- Performed Principal Component Analysis (PCA) to explore patterns and variation in gene expression.
+- Generated volcano plots and heatmaps to visualise differentially expressed genes.
+- Conducted Gene Ontology (GO) enrichment analysis to identify biological processes associated with differentially expressed genes.
+- Created reproducible analysis workflows using R Markdown.
+
+### Single-cell RNA-seq Analysis of Lung Cancer
+
+Analysed single-cell RNA-seq data to investigate differences in immune cell composition and gene expression between a lung cancer patient and a healthy control.
+
+**Methods & Tools:** Cell Ranger · Seurat · Quality control · Normalisation · PCA · Clustering · UMAP · Differential gene expression · GO enrichment analysis
+
+- Used Cell Ranger to process sequencing reads and Seurat for downstream single-cell analysis.
+- Performed quality control, filtering, normalisation and identification of highly variable genes.
+- Applied PCA, clustering and UMAP to explore cell populations and identify specific immune cell types.
+- Conducted differential gene expression analysis of CD8 T-cells and Gene Ontology (GO) enrichment analysis.
+- Visualised gene expression patterns using UMAP plots, violin plots and dot plots.
+- Investigated genes associated with CD8 T-cell cytotoxicity and differences in immune-related biological processes.
+
+### R Package Development
+
+Developed a custom R package containing at least four self-written and reusable functions, each organised in a separate R script.
+
+**Methods & Tools:** R · roxygen2 · DESCRIPTION · NAMESPACE · Vignettes · Git · GitHub · devtools
+
+- Documented all functions using roxygen2 comments.
+- Created the package structure, including the DESCRIPTION and NAMESPACE files.
+- Developed a vignette containing instructions and examples explaining how to use the package.
+- Published the package on GitHub, making it installable using `devtools::install_github()`.
+- Used Git and GitHub for version control and package sharing.
+
+### Healthcare Technology Assessment Model for AI in Radiology
+
+Collaborated on converting an existing Excel-based Health Technology Assessment (HTA) model into an R-based application.
+
+**Methods & Tools:** R · R Markdown · R Shiny · Excel · GitHub · Agile/Scrum
+
+- Translated the model's calculations into R code using R Markdown to improve transparency and reproducibility.
+- Developed an R Shiny dashboard allowing users to adjust input parameters and explore the estimated costs and benefits of implementing AI in radiology.
+- Implemented model outputs covering development, implementation and maintenance costs, as well as expected time and cost savings.
+- Verified and validated the R model and Shiny application by comparing their results with the original Excel model.
+- Used GitHub and Agile/Scrum practices for collaborative project development.
 
 ---
 
-## Professional Experience
+## Internship Experience
 
-### Fresh Department Responsible | Albert Heijn
+**Front-End Developer Intern**
 
-* June 2025 – Present | Nieuwegein
+VWA, Dronten, Netherlands | August 2023 - December 2023
 
-- Responsible for the daily operations and overall quality management of the fresh produce department.
-- Conducted twice-daily quality controls (QC) across all products to ensure product freshness, quality and compliance with company standards.
-- Monitored product quality, stock levels and presentation to maintain the departmental standards.
-- Coordinated daily departmental activities and ensured efficient workflow.
+- Collaborated with colleagues on various web development projects.
+- Gained practical experience in front-end development and working with web technologies.
+- Worked within multidisciplinary teams and contributed to structured project execution.
+- Strengthened technical understanding and problem-solving skills.
 
----
+## Work Experience
 
-## Certifications & Courses
+**Fresh Department Responsible**
 
-- Data Science for Biology – Life Science
-- Successfully completed all first year courses and obtained the propaedeutic certificate (60 ECTS credits).
+Albert Heijn, Nieuwegein, Netherlands | June 2025–Present
+
+- Responsible for daily operations and quality management of the fresh produce department.
+- Conduct quality checks twice daily.
+- Monitor stock levels, product presentation and workflow.
+- Coordinate daily tasks to maintain department standards.
 
 ---
 
 ## Additional Information
 
-**Languages:** Dutch (fluent), English (fluent), Russian (native)
+**Languages:** Dutch – Fluent · English – Fluent · Russian – Native
 
-**Technical Interests:** Bioinformatics, computational biology, RNA sequencing, genomics, biological data analysis and reproducible research.
-
-**GitHub:** https://github.com/davalyn
-
-**Portfolio:** https://davalyn.github.io
-
----
-
-<small>CV Template: [Data Scientist Resume Template](https://github.com/markdownresume/markdown-resume-templates/blob/main/templates/data-scientist.md?plain=1)</small>
+**Interests:** Biomedical Data Science · Bioinformatics and Genomics · Machine Learning · Statistical Data Analysis

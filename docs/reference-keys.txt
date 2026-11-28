@@ -67,3 +67,11 @@ testen
 vignette
 publiceren-op-github
 reflectie
+bulk-rna-seq-analysis-of-liver-and-kidney-tissue
+single-cell-rna-seq-analysis-of-lung-cancer
+r-package-development
+healthcare-technology-assessment-model-for-ai-in-radiology
+internship-experience
+front-end-developer-intern
+work-experience
+fresh-department-responsible
