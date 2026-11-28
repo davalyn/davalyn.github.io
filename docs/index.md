@@ -1,20 +1,20 @@
 ---
-title: "DSFB2 Portfolio"
-author: "Alan Davliatov"
 site: bookdown::bookdown_site
-output:
-  bookdown::gitbook:
-    config:
-      toc:
-        collapse: section
+output: bookdown::gitbook
 ---
 
-# Welcome {-}
+<div style="text-align: center;">
 
-Welcome to my Data Science for Biology portfolio.
+# Welcome! {-}
 
-In this portfolio, I document my development throughout the DSFB2 course.
+Welcome to my Data Science for Biology 2 portfolio.
+
+![](images/welcome_picture.png){width=75%}
+
+This portfolio showcases my learning journey throughout the DSFB2 course, highlighting the development of my skills in biological data analysis, programming and bioinformatics. It brings together the assignments, projects and practical work I have completed during the course, reflecting both my progress and the knowledge I have gained.
+
+</div>
 
 ---
 
-<small>Data Science for Biology 2 · 2026–2027</small>
+<small>Alan Davliatov · Data Science for Biology 2 · 2026–2027</small>

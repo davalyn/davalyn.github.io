@@ -16,7 +16,7 @@ Nieuwegein, UT
 
 ## Professional Summary
 
-Life Sciences student with a background in Biomedical Laboratory Research (BML) and a growing specialisation in Biomedical Data Science and Bioinformatics. Combines practical laboratory knowledge with strong skills in programming, statistical and exploratory data analysis, and biological data interpretation. Experienced in analysing bulk and single-cell RNA-seq data, visualising biological data, programming in R and Bash, developing custom R packages, building interactive Shiny applications, and creating reproducible workflows using R Markdown, Git and GitHub. Interested in applying statistical and computational methods to identify patterns, uncover biological insights and support data-driven research in biomedical datasets.
+Life Sciences student with a background in Biomedical Laboratory Research (BML) and a growing specialisation in Biomedical Data Science and Bioinformatics. Combines practical laboratory knowledge with strong skills in programming, statistical data analysis and biological data interpretation. Experienced in analysing RNA-seq data, visualising biological data, programming in R and Bash, developing custom R packages, building interactive Shiny applications and creating reproducible workflows using R Markdown, Git and GitHub. Interested in applying statistical and computational methods to identify patterns, uncover biological insights and support data-driven research in biomedical datasets.
 
 ---
 
@@ -50,9 +50,9 @@ Completed the first 3 years of the programme Biomedical Laboratory Research (BML
 
 ## Projects & Research
 
-### Bulk RNA-seq Analysis of Liver and Kidney Tissue
+### Single-cell RNA-seq Analysis of Liver and Kidney Tissue
 
-Analysed bulk RNA-seq data to investigate differences in gene expression between liver and kidney tissue.
+Analysed single-cell RNA-seq data to investigate differences in gene expression between liver and kidney tissue.
 
 **Methods & Tools:** Rsubread · featureCounts · DESeq2 · PCA · Volcano plots · Heatmaps · Gene Ontology (GO) enrichment analysis · R Markdown
 
@@ -121,8 +121,8 @@ VWA, Dronten, Netherlands | August 2023 - December 2023
 
 Albert Heijn, Nieuwegein, Netherlands | June 2025–Present
 
-- Responsible for daily operations and quality management of the fresh produce department.
-- Conduct quality checks twice daily.
+- Responsible for daily operations and quality management of the department.
+- Conduct quality checks multiple times a day.
 - Monitor stock levels, product presentation and workflow.
 - Coordinate daily tasks to maintain department standards.
 
@@ -132,4 +132,4 @@ Albert Heijn, Nieuwegein, Netherlands | June 2025–Present
 
 **Languages:** Dutch – Fluent · English – Fluent · Russian – Native
 
-**Interests:** Biomedical Data Science · Bioinformatics and Genomics · Machine Learning · Statistical Data Analysis
+**Interests:** Biomedical Data Science · Bioinformatics and Genomics · Machine Learning
