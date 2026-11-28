@@ -176,7 +176,7 @@ y_test <- outcome[-train_index]
 
 ## Training the Random Forest Model
 
-We check the distribution of the training and test sets and then train the Random Forest model.
+We check the distribution of the training & test sets and then train the Random Forest model.
 
 
 ``` r
@@ -242,7 +242,7 @@ rf_model
 
 ## Evaluating the Model on the Test Set
 
-We test how well the model can distinguish between COVID-19 patients and healthy controls using unseen data.
+We test how well the model can distinguish between COVID-19 patients and healthy controls using data it's never seen before.
 
 
 ``` r
@@ -312,7 +312,7 @@ plot(roc_model,
      col = "blue", print.auc = TRUE)
 ```
 
-<img src="2_Vrije_opdracht_files/figure-html/roc_analysis-1.png" alt="" width="672" />
+<img src="2_Machine_Learning_project_files/figure-html/roc_analysis-1.png" alt="" width="672" />
 
 ## Identifying and Visualising the Most Important Genes
 
@@ -343,13 +343,13 @@ ggplot(top_genes, aes(reorder(SYMBOL, MeanDecreaseGini), MeanDecreaseGini)) +
   theme_minimal()
 ```
 
-<img src="2_Vrije_opdracht_files/figure-html/gene_importance-1.png" alt="" width="672" />
+<img src="2_Machine_Learning_project_files/figure-html/gene_importance-1.png" alt="" width="672" />
 
 ---
 
 ## Discussion
 
-This study investigated whether a Random Forest model could distinguish between COVID-19 patients and healthy controls based on gene expression profiles from bulk RNA-seq data. The model achieved an accuracy of 93.75% and an AUC of 0.9792. This indicates that the model was able to distinguish well between the two groups within this dataset.
+This study investigated whether a Random Forest model could distinguish between COVID-19 patients and healthy controls based on gene expression profiles from bulk RNA-seq data. The model achieved an accuracy of 93.75% and an AUC of 0.9792. This indicates that the model was able to distinguish pretty well between the two groups within this dataset.
 
 The sensitivity was 100%, meaning that all COVID-19 patients in the test set were correctly classified. The specificity was 75%: three out of four healthy controls were correctly classified. One healthy control was incorrectly predicted as a COVID-19 patient.
 

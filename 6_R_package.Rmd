@@ -1,97 +1,95 @@
-# R package
+# R Package
 
-## Introductie
+## Introduction
 
-Voor deze opdracht heb ik mijn eigen R-package ontwikkeld: **cleanDataTools**. Het doel van deze opdracht was om te leren hoe je zelf een R-package maakt en beschikbaar stelt aan anderen via GitHub.
+For this assignment, I developed my own R package: **cleanDataTools**. The goal of this assignment was to learn how to create an R package and make it available to others through GitHub.
 
-Ik heb gekozen voor een package met eenvoudige functies voor het controleren en opschonen van datasets. Tijdens data-analyses is het belangrijk om eerst de kwaliteit van een dataset te controleren. Ontbrekende waarden en dubbele observaties kunnen bijvoorbeeld invloed hebben op de verdere analyse en de resultaten.
+I chose to develop a package containing simple functions for checking and cleaning datasets. During data analysis, it is important to first assess the quality of a dataset. Missing values and duplicate observations, for example, can affect further analyses and their results.
 
-Met cleanDataTools wil ik een aantal veelgebruikte handelingen voor datacleaning bundelen in één package, zodat ik deze functies bij toekomstige analyses opnieuw kan gebruiken.
+With cleanDataTools, I aim to combine several commonly used data cleaning operations into a single package, allowing me to reuse these functions in future analyses.
 
-## De functies
+## Functions
 
-Mijn package bevat vier zelfgeschreven functies. Elke functie staat in een afzonderlijk `.R`-bestand in de map `R/`.
+My package contains four self-written functions. Each function is stored in a `.R` file in the directory.
 
-| Functie | Beschrijving |
+| Function | Description |
 |---|---|
-| `count_missing()` | Telt het aantal ontbrekende waarden (`NA`) per kolom. |
-| `remove_missing()` | Verwijdert rijen waarin één of meerdere waarden ontbreken. |
-| `count_duplicates()` | Telt het aantal dubbele rijen in een dataset. |
-| `remove_duplicates()` | Verwijdert dubbele rijen en behoudt de eerste voorkomende rij. |
+| `count_missing()` | Counts the number of missing values (`NA`) in each column. |
+| `remove_missing()` | Removes rows containing one or more missing values. |
+| `count_duplicates()` | Counts the number of duplicate rows in a dataset. |
+| `remove_duplicates()` | Removes duplicate rows while keeping the first occurrence. |
 
-Deze functies helpen bij het controleren en opschonen van datasets voordat deze verder worden geanalyseerd.
+These functions help check and clean datasets before they are used for further analysis.
 
-## Opbouw van het package
+## Package structure
 
-Bij het ontwikkelen van het package heb ik gebruikgemaakt van de R-packages `usethis` en `devtools`. Met behulp van deze packages kon ik de structuur van mijn eigen package opzetten en de verschillende onderdelen beheren.
+During the development of the package, I used the R packages `usethis` and `devtools`. These packages allowed me to set up the structure of my own package and manage its different components.
 
-De structuur van mijn package ziet er als volgt uit:
+The structure of my package looks as follows:
 
 ![](images/package_structure.png){ width=40% }
 
-De belangrijkste onderdelen zijn:
+The main components are:
 
-- **DESCRIPTION:** bevat informatie over het package, zoals de naam, versie, auteur en beschrijving.
-- **R:** bevat de vier afzonderlijke bestanden met mijn functies.
-- **man:** bevat de documentatie van de functies.
-- **NAMESPACE:** bepaalt welke functies beschikbaar worden gemaakt voor gebruikers van het package.
-- **tests:** bevat tests waarmee ik heb gecontroleerd of de functies correct werken.
-- **vignettes:** bevat een uitleg en voorbeelden van het gebruik van het package.
+- **DESCRIPTION:** Contains information about the package, such as its name, version, author and description.
+- **R:** Contains the four separate files with my functions.
+- **man:** Contains the documentation for the functions.
+- **NAMESPACE:** Determines which functions are made available to package users.
+- **tests:** Contains tests that I used to check whether the functions work correctly.
+- **vignettes:** Contains explanations and examples of how to use the package.
 
-## Documentatie
+## Documentation
 
-Voor de documentatie van mijn functies heb ik roxygen2-comments gebruikt. Hiermee worden onder andere de parameters, uitvoer en voorbeelden van de functies beschreven.
+For the documentation of my functions, I used roxygen2 comments. These describe, among other things, the parameters, output and examples of the functions.
 
-Met het commando `devtools::document()` heb ik vervolgens de documentatiebestanden en het NAMESPACE-bestand gegenereerd.
+I then used the `devtools::document()` command to generate the documentation files and the NAMESPACE file.
 
-## Testen
+## Testing
 
-Om te controleren of mijn functies correct werken, heb ik voor alle vier de functies een test geschreven met behulp van `testthat`.
+To check whether my functions work correctly, I wrote a test for each of the functions using `testthat`. The tests check, among other things, whether missing values are counted correctly, duplicate rows are removed and the correct number of duplicate rows is reported.
 
-De tests controleren onder andere of ontbrekende waarden correct worden geteld, dubbele rijen worden verwijderd en het juiste aantal dubbele rijen wordt gerapporteerd.
-
-Bij het uitvoeren van `devtools::test()` slaagden alle vier de tests.
+When running `devtools::test()`, all four tests passed.
 
 ![](images/passing_tests.png){ width=50% }
 
 ## Vignette
 
-Ik heb ook een vignette toegevoegd waarin wordt uitgelegd wat het package doet en hoe de verschillende functies gebruikt kunnen worden. De vignette bevat voorbeelden waarmee gebruikers de functies zelf kunnen uitproberen.
+I also added a vignette explaining what the package does and how the different functions can be used. The vignette includes examples that allow users to try out the functions themselves.
 
-Ik heb gecontroleerd of de vignette beschikbaar was met:
+I checked whether the vignette was available using:
 
 ```r
 browseVignettes("cleanDataTools")
 ```
 
-## Publiceren op GitHub
+## Publishing on GitHub
 
-Als laatste stap heb ik mijn package gepubliceerd in een openbare GitHub-repository. Hierdoor kunnen anderen mijn code bekijken en het package zelf installeren.
+As the final step, I published my package in a public GitHub repository. This allows others to view my code and install the package themselves.
 
-Het package kan rechtstreeks vanuit R worden geïnstalleerd met:
+The package can be installed directly from R using:
 
 ```r
 devtools::install_github("davalyn/cleanDataTools")
 ```
 
-Na installatie kan het package worden geladen met:
+After installation, the package can be loaded using:
 
 ```r
 library(cleanDataTools)
 ```
 
-Ik heb deze installatie zelf getest en vervolgens alle vier de functies opnieuw uitgevoerd. Alle functies gaven de verwachte resultaten.
+I tested the installation myself and then ran all four functions again. All functions produced the expected results.
 
 ![](images/repo_overview.png){ width=100% }
 
 **GitHub-repository:** [cleanDataTools](https://github.com/davalyn/cleanDataTools)
 
-## Reflectie
+## Reflection
 
-Tijdens deze opdracht heb ik geleerd hoe een R-package is opgebouwd en welke onderdelen nodig zijn om eigen functies op een gestructureerde manier beschikbaar te maken voor anderen.
+During this assignment, I learned how an R package is structured and which components are needed to make custom functions available to others in an organised way.
 
-Vooral het werken met afzonderlijke functiebestanden, roxygen2-documentatie en het testen van functies was leerzaam. Ik heb ook ervaren hoe GitHub gebruikt kan worden om code te delen en hoe een package rechtstreeks vanuit een repository geïnstalleerd kan worden.
+Working with separate function files, roxygen2 documentation and testing functions was particularly educational. I also learned how GitHub can be used to share code and how a package can be installed directly from a repository.
 
-Een belangrijk inzicht is dat het maken van herbruikbare functies niet alleen handig is voor jezelf, maar ook bijdraagt aan reproduceerbaar werken. Door functies te documenteren en samen te voegen in een package, kunnen dezelfde stappen bij verschillende analyses op een consistente manier worden uitgevoerd.
+An important insight is that creating reusable functions is not only convenient for personal use but also contributes to reproducible research. By documenting functions and combining them into a package, the same steps can be performed consistently across different analyses.
 
-In de toekomst kan ik cleanDataTools verder uitbreiden met aanvullende functies voor datacleaning. Zo kan ik het package blijven gebruiken en verbeteren tijdens volgende data-analyses.
+In the future, I can further expand cleanDataTools by adding additional data cleaning functions. This will allow me to continue using and improving the package in future data analyses.

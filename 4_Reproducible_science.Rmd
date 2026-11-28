@@ -1,0 +1,136 @@
+# Reproducible Science
+
+In this section, I demonstrate my understanding of reproducible science through two assignments. First, I reproduce a data analysis using *C. elegans* data. Second, I assess the reproducibility of a published scientific article and attempt to reproduce its R code.
+
+## Reproducing a data analysis
+
+### Data import
+
+First, I import the dataset using the `readxl` package.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+library(readxl)
+library(ggplot2)
+```
+
+```{r}
+data <- read_excel("data/CE.LIQ.FLOW.062_Tidydata.xlsx", sheet = "expParameters")
+```
+
+### Data inspection
+
+I inspect the first rows and the structure of the dataset to check whether the data has been imported correctly and whether the variables have the correct data types.
+
+```{r}
+head(data)
+```
+
+### Scatterplot of the raw data
+
+I create a scatterplot to visualise the relationship between chemical concentration and the number of offspring. Different colours represent the chemicals, while different shapes represent the experimental conditions.
+
+```{r}
+data$compConcentration <- as.numeric(data$compConcentration)
+
+ggplot(data, aes(
+  x = compConcentration, y = RawData,
+  colour = compName, shape = expType)) +
+  geom_point(position = position_jitter(width = 0.1, height = 0.5), alpha = 0.7) +
+  scale_x_log10() +
+  labs(x = "Concentration (log10)", y = "RawData",
+       colour = "Chemical", shape = "Experiment type") +
+  theme_bw()
+```
+
+### Data normalisation
+
+I normalise the data using the mean of the negative control. This makes the mean value of the negative control equal to 1, expressing all other measurements as a fraction of this value.
+
+```{r}
+negative_mean <- mean(data$RawData[data$expType == "controlNegative"], na.rm = TRUE)
+
+data$normalised <- data$RawData / negative_mean
+
+mean(data$normalised[data$expType == "controlNegative"], na.rm = TRUE)
+```
+
+### Scatterplot of the normalised data
+
+I create a second scatterplot to visualise the normalised measurements.
+
+```{r}
+ggplot(data, aes(x = compConcentration, y = normalised,
+                 colour = compName, shape = expType)) +
+  geom_point(position = position_jitter(width = 0.1, height = 0.01), alpha = 0.7) +
+  scale_x_log10() +
+  labs(x = "Concentration (log10)", y = "Normalised RawData",
+       colour = "Chemical", shape = "Experiment type") +
+  theme_bw()
+```
+
+### Explanation of the analysis
+
+- The negative control in this experiment is S-medium without added chemicals. This serves as a baseline to measure normal reproduction. The positive control is ethanol and is used to check whether the experiment can detect a particular effect.
+
+- The negative control represents the normal situation. The positive control demonstrates whether the experiment can detect an effect. The vehicle control checks whether the solvent itself influences the results.
+
+- Normalisation ensures that the mean of the negative control equals 1. This allows all other measurements to be compared fairly with the normal situation.
+
+### Plan for further research: dose-response analysis
+
+For further research, a dose-response analysis could be performed to determine the IC50 using the `drc` R package.
+
+1. Install the `drc` package.
+2. Select a chemical and use its corresponding concentrations and measurements.
+3. Fit a dose-response model using a log-logistic model.
+4. Visualise the dose-response curve.
+5. Calculate the IC50 concentration.
+
+## Assessing reproducibility
+
+### Article
+
+Marinos et al. (2020). *Defining the nutritional input for genome-scale metabolic models: A roadmap.*
+
+[Article](https://doi.org/10.1371/journal.pone.0236890) | [GitHub repository](https://github.com/maringos/StepDiet)
+
+### Research question
+
+*How can the nutritional composition of a growth medium be accurately translated into input data for genome-scale metabolic models?*
+
+### Methods and results
+
+The researchers developed a roadmap using *E. coli* and LB medium. They used R to analyse the nutritional composition and predict bacterial growth. The results show that different nutrients, such as amino acids and carbohydrates, influence the predicted growth.
+
+### Transparency criteria
+
+| Criterion | Assessment | Explanation |
+|---|---|---|
+| Study Purpose | Yes | The research objective is clearly described. |
+| Data Availability Statement | Yes | A separate statement about data availability is provided. |
+| Data Location | GitHub | Data and R scripts are available on GitHub. |
+| Study Location | No | No specific location is mentioned. |
+| Author Review | Yes | The authors provide their email addresses. |
+| Ethics Statement | No | No separate ethics statement is included. |
+| Funding Statement | Yes | Funding from the Deutsche Forschungsgemeinschaft is mentioned. |
+| Code Availability | Yes | The R scripts are publicly available on GitHub. |
+
+### Reviewing the R code
+
+<h4>Code description</h4>
+
+The R code uses a metabolic model of *E. coli* to investigate how nutrients influence predicted bacterial growth. Flux Balance Analysis is used for this purpose. The code calculates the effects of additional nutrients and visualises the results using bar plots.
+
+<h4>Readability</h4>
+
+**Score: 3/5**
+
+The code contains clear comments and is organised into sections. However, some functions and calculations are too complex for me to fully understand. I also had to adjust the file paths several times.
+
+<h4>Reproducibility</h4>
+
+**Score: 2/5**
+
+I attempted to run the analysis in RStudio, but encountered installation problems with `glpkAPI`. As a result, I was unable to reproduce the figures. Although the code and data are publicly available, the analysis requires adjustments before it can be executed successfully.

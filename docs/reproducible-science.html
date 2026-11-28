@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Reproducible Science | _main</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Reproducible Science | _main" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Reproducible Science | _main" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-management.html"/>
+<link rel="next" href="sql.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="1" data-path="cv.html"><a href="cv.html"><i class="fa fa-check"></i><b>1</b> CV</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="cv.html"><a href="cv.html#professional-summary"><i class="fa fa-check"></i><b>1.1</b> Professional Summary</a></li>
+<li class="chapter" data-level="1.2" data-path="cv.html"><a href="cv.html#technical-skills"><i class="fa fa-check"></i><b>1.2</b> Technical Skills</a></li>
+<li class="chapter" data-level="1.3" data-path="cv.html"><a href="cv.html#education"><i class="fa fa-check"></i><b>1.3</b> Education</a></li>
+<li class="chapter" data-level="1.4" data-path="cv.html"><a href="cv.html#projects-research"><i class="fa fa-check"></i><b>1.4</b> Projects &amp; Research</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="cv.html"><a href="cv.html#single-cell-rna-seq-analysis-of-liver-and-kidney-tissue"><i class="fa fa-check"></i><b>1.4.1</b> Single-cell RNA-seq Analysis of Liver and Kidney Tissue</a></li>
+<li class="chapter" data-level="1.4.2" data-path="cv.html"><a href="cv.html#single-cell-rna-seq-analysis-of-lung-cancer"><i class="fa fa-check"></i><b>1.4.2</b> Single-cell RNA-seq Analysis of Lung Cancer</a></li>
+<li class="chapter" data-level="1.4.3" data-path="cv.html"><a href="cv.html#r-package-development"><i class="fa fa-check"></i><b>1.4.3</b> R Package Development</a></li>
+<li class="chapter" data-level="1.4.4" data-path="cv.html"><a href="cv.html#healthcare-technology-assessment-model-for-ai-in-radiology"><i class="fa fa-check"></i><b>1.4.4</b> Healthcare Technology Assessment Model for AI in Radiology</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="cv.html"><a href="cv.html#internship-experience"><i class="fa fa-check"></i><b>1.5</b> Internship Experience</a></li>
+<li class="chapter" data-level="1.6" data-path="cv.html"><a href="cv.html#work-experience"><i class="fa fa-check"></i><b>1.6</b> Work Experience</a></li>
+<li class="chapter" data-level="1.7" data-path="cv.html"><a href="cv.html#future-career-plan"><i class="fa fa-check"></i><b>1.7</b> Future Career Plan</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="cv.html"><a href="cv.html#where-would-you-like-to-work-in-1-or-2-years-what-would-your-dream-job-look-like"><i class="fa fa-check"></i><b>1.7.1</b> Where would you like to work in 1 or 2 years? What would your dream job look like?</a></li>
+<li class="chapter" data-level="1.7.2" data-path="cv.html"><a href="cv.html#how-prepared-are-you-to-start-working-towards-your-dream-job-what-skills-do-you-already-have"><i class="fa fa-check"></i><b>1.7.2</b> How prepared are you to start working towards your dream job? What skills do you already have?</a></li>
+<li class="chapter" data-level="1.7.3" data-path="cv.html"><a href="cv.html#which-skills-would-you-still-like-or-need-to-learn"><i class="fa fa-check"></i><b>1.7.3</b> Which skills would you still like or need to learn?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="machine-learning-for-cancer-classification.html"><a href="machine-learning-for-cancer-classification.html"><i class="fa fa-check"></i><b>2</b> Machine Learning for cancer classification</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="machine-learning-for-cancer-classification.html"><a href="machine-learning-for-cancer-classification.html#importing-packages-and-data"><i class="fa fa-check"></i><b>2.1</b> Importing Packages and Data</a></li>
+<li class="chapter" data-level="2.2" data-path="machine-learning-for-cancer-classification.html"><a href="machine-learning-for-cancer-classification.html#retrieving-metadata-and-groups"><i class="fa fa-check"></i><b>2.2</b> Retrieving Metadata and Groups</a></li>
+<li class="chapter" data-level="2.3" data-path="machine-learning-for-cancer-classification.html"><a href="machine-learning-for-cancer-classification.html#data-quality-checks"><i class="fa fa-check"></i><b>2.3</b> Data Quality Checks</a></li>
+<li class="chapter" data-level="2.4" data-path="machine-learning-for-cancer-classification.html"><a href="machine-learning-for-cancer-classification.html#data-filtering-and-normalisation"><i class="fa fa-check"></i><b>2.4</b> Data Filtering and Normalisation</a></li>
+<li class="chapter" data-level="2.5" data-path="machine-learning-for-cancer-classification.html"><a href="machine-learning-for-cancer-classification.html#training-the-random-forest-model"><i class="fa fa-check"></i><b>2.5</b> Training the Random Forest Model</a></li>
+<li class="chapter" data-level="2.6" data-path="machine-learning-for-cancer-classification.html"><a href="machine-learning-for-cancer-classification.html#evaluating-the-model-on-the-test-set"><i class="fa fa-check"></i><b>2.6</b> Evaluating the Model on the Test Set</a></li>
+<li class="chapter" data-level="2.7" data-path="machine-learning-for-cancer-classification.html"><a href="machine-learning-for-cancer-classification.html#calculating-the-roc-curve-and-auc"><i class="fa fa-check"></i><b>2.7</b> Calculating the ROC Curve and AUC</a></li>
+<li class="chapter" data-level="2.8" data-path="machine-learning-for-cancer-classification.html"><a href="machine-learning-for-cancer-classification.html#identifying-and-visualising-the-most-important-genes"><i class="fa fa-check"></i><b>2.8</b> Identifying and Visualising the Most Important Genes</a></li>
+<li class="chapter" data-level="2.9" data-path="machine-learning-for-cancer-classification.html"><a href="machine-learning-for-cancer-classification.html#discussion"><i class="fa fa-check"></i><b>2.9</b> Discussion</a></li>
+<li class="chapter" data-level="2.10" data-path="machine-learning-for-cancer-classification.html"><a href="machine-learning-for-cancer-classification.html#conclusion"><i class="fa fa-check"></i><b>2.10</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-management.html"><a href="data-management.html"><i class="fa fa-check"></i><b>3</b> Data management</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-management.html"><a href="data-management.html#rna-seq-daur2"><i class="fa fa-check"></i><b>3.1</b> RNA-seq DAUR2</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="data-management.html"><a href="data-management.html#folder-structure"><i class="fa fa-check"></i><b>3.1.1</b> Folder structure</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-management.html"><a href="data-management.html#readme-file"><i class="fa fa-check"></i><b>3.1.2</b> README file</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-management.html"><a href="data-management.html#portfolio-repository"><i class="fa fa-check"></i><b>3.2</b> Portfolio repository</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-management.html"><a href="data-management.html#folder-structure-1"><i class="fa fa-check"></i><b>3.2.1</b> Folder structure</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-management.html"><a href="data-management.html#readme-file-1"><i class="fa fa-check"></i><b>3.2.2</b> README file</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reproducible-science.html"><a href="reproducible-science.html"><i class="fa fa-check"></i><b>4</b> Reproducible Science</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="reproducible-science.html"><a href="reproducible-science.html#reproducing-a-data-analysis"><i class="fa fa-check"></i><b>4.1</b> Reproducing a data analysis</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="reproducible-science.html"><a href="reproducible-science.html#data-import"><i class="fa fa-check"></i><b>4.1.1</b> Data import</a></li>
+<li class="chapter" data-level="4.1.2" data-path="reproducible-science.html"><a href="reproducible-science.html#data-inspection"><i class="fa fa-check"></i><b>4.1.2</b> Data inspection</a></li>
+<li class="chapter" data-level="4.1.3" data-path="reproducible-science.html"><a href="reproducible-science.html#scatterplot-of-the-raw-data"><i class="fa fa-check"></i><b>4.1.3</b> Scatterplot of the raw data</a></li>
+<li class="chapter" data-level="4.1.4" data-path="reproducible-science.html"><a href="reproducible-science.html#data-normalisation"><i class="fa fa-check"></i><b>4.1.4</b> Data normalisation</a></li>
+<li class="chapter" data-level="4.1.5" data-path="reproducible-science.html"><a href="reproducible-science.html#scatterplot-of-the-normalised-data"><i class="fa fa-check"></i><b>4.1.5</b> Scatterplot of the normalised data</a></li>
+<li class="chapter" data-level="4.1.6" data-path="reproducible-science.html"><a href="reproducible-science.html#explanation-of-the-analysis"><i class="fa fa-check"></i><b>4.1.6</b> Explanation of the analysis</a></li>
+<li class="chapter" data-level="4.1.7" data-path="reproducible-science.html"><a href="reproducible-science.html#plan-for-further-research-dose-response-analysis"><i class="fa fa-check"></i><b>4.1.7</b> Plan for further research: dose-response analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="reproducible-science.html"><a href="reproducible-science.html#assessing-reproducibility"><i class="fa fa-check"></i><b>4.2</b> Assessing reproducibility</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="reproducible-science.html"><a href="reproducible-science.html#article"><i class="fa fa-check"></i><b>4.2.1</b> Article</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reproducible-science.html"><a href="reproducible-science.html#research-question"><i class="fa fa-check"></i><b>4.2.2</b> Research question</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reproducible-science.html"><a href="reproducible-science.html#methods-and-results"><i class="fa fa-check"></i><b>4.2.3</b> Methods and results</a></li>
+<li class="chapter" data-level="4.2.4" data-path="reproducible-science.html"><a href="reproducible-science.html#transparency-criteria"><i class="fa fa-check"></i><b>4.2.4</b> Transparency criteria</a></li>
+<li class="chapter" data-level="4.2.5" data-path="reproducible-science.html"><a href="reproducible-science.html#reviewing-the-r-code"><i class="fa fa-check"></i><b>4.2.5</b> Reviewing the R code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>5</b> SQL</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="sql.html"><a href="sql.html#loading-the-datasets"><i class="fa fa-check"></i><b>5.1</b> Loading the datasets</a></li>
+<li class="chapter" data-level="5.2" data-path="sql.html"><a href="sql.html#checking-and-making-the-datasets-tidy"><i class="fa fa-check"></i><b>5.2</b> Checking and making the datasets tidy</a></li>
+<li class="chapter" data-level="5.3" data-path="sql.html"><a href="sql.html#standardizing-country-and-date-variables"><i class="fa fa-check"></i><b>5.3</b> Standardizing country and date variables</a></li>
+<li class="chapter" data-level="5.4" data-path="sql.html"><a href="sql.html#checking-country-names"><i class="fa fa-check"></i><b>5.4</b> Checking country names</a></li>
+<li class="chapter" data-level="5.5" data-path="sql.html"><a href="sql.html#preparing-the-datasets-for-joining"><i class="fa fa-check"></i><b>5.5</b> Preparing the datasets for joining</a></li>
+<li class="chapter" data-level="5.6" data-path="sql.html"><a href="sql.html#saving-the-datasets"><i class="fa fa-check"></i><b>5.6</b> Saving the datasets</a></li>
+<li class="chapter" data-level="5.7" data-path="sql.html"><a href="sql.html#importing-and-joining-the-datasets-using-sql"><i class="fa fa-check"></i><b>5.7</b> Importing and joining the datasets using SQL</a></li>
+<li class="chapter" data-level="5.8" data-path="sql.html"><a href="sql.html#visualizing-the-joined-data"><i class="fa fa-check"></i><b>5.8</b> Visualizing the joined data</a></li>
+<li class="chapter" data-level="5.9" data-path="sql.html"><a href="sql.html#conclusion-1"><i class="fa fa-check"></i><b>5.9</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-package.html"><a href="r-package.html"><i class="fa fa-check"></i><b>6</b> R Package</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="r-package.html"><a href="r-package.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="r-package.html"><a href="r-package.html#functions"><i class="fa fa-check"></i><b>6.2</b> Functions</a></li>
+<li class="chapter" data-level="6.3" data-path="r-package.html"><a href="r-package.html#package-structure"><i class="fa fa-check"></i><b>6.3</b> Package structure</a></li>
+<li class="chapter" data-level="6.4" data-path="r-package.html"><a href="r-package.html#documentation"><i class="fa fa-check"></i><b>6.4</b> Documentation</a></li>
+<li class="chapter" data-level="6.5" data-path="r-package.html"><a href="r-package.html#testing"><i class="fa fa-check"></i><b>6.5</b> Testing</a></li>
+<li class="chapter" data-level="6.6" data-path="r-package.html"><a href="r-package.html#vignette"><i class="fa fa-check"></i><b>6.6</b> Vignette</a></li>
+<li class="chapter" data-level="6.7" data-path="r-package.html"><a href="r-package.html#publishing-on-github"><i class="fa fa-check"></i><b>6.7</b> Publishing on GitHub</a></li>
+<li class="chapter" data-level="6.8" data-path="r-package.html"><a href="r-package.html#reflection"><i class="fa fa-check"></i><b>6.8</b> Reflection</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="parameterized-rmarkdown.html"><a href="parameterized-rmarkdown.html"><i class="fa fa-check"></i><b>7</b> Parameterized RMarkdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reproducible-science" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Reproducible Science<a href="reproducible-science.html#reproducible-science" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this section, I demonstrate my understanding of reproducible science through two assignments. First, I reproduce a data analysis using <em>C. elegans</em> data. Second, I assess the reproducibility of a published scientific article and attempt to reproduce its R code.</p>
+<div id="reproducing-a-data-analysis" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Reproducing a data analysis<a href="reproducible-science.html#reproducing-a-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-import" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Data import<a href="reproducible-science.html#data-import" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First, I import the dataset using the <code>readxl</code> package.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="reproducible-science.html#cb30-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/CE.LIQ.FLOW.062_Tidydata.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;expParameters&quot;</span>)</span></code></pre></div>
+</div>
+<div id="data-inspection" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Data inspection<a href="reproducible-science.html#data-inspection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I inspect the first rows and the structure of the dataset to check whether the data has been imported correctly and whether the variables have the correct data types.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="reproducible-science.html#cb31-1" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 34
+##   plateRow plateColumn vialNr dropCode expType    expReplicate expName        
+##   &lt;lgl&gt;    &lt;lgl&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;          
+## 1 NA       NA               1 a        experiment            3 CE.LIQ.FLOW.062
+## 2 NA       NA               1 b        experiment            3 CE.LIQ.FLOW.062
+## 3 NA       NA               1 c        experiment            3 CE.LIQ.FLOW.062
+## 4 NA       NA               1 d        experiment            3 CE.LIQ.FLOW.062
+## 5 NA       NA               1 e        experiment            3 CE.LIQ.FLOW.062
+## 6 NA       NA               2 a        experiment            3 CE.LIQ.FLOW.062
+## # ℹ 27 more variables: expDate &lt;dttm&gt;, expResearcher &lt;chr&gt;, expTime &lt;dbl&gt;,
+## #   expUnit &lt;chr&gt;, expVolumeCounted &lt;dbl&gt;, RawData &lt;dbl&gt;, compCASRN &lt;chr&gt;,
+## #   compName &lt;chr&gt;, compConcentration &lt;chr&gt;, compUnit &lt;chr&gt;,
+## #   compDelivery &lt;chr&gt;, compVehicle &lt;chr&gt;, elegansStrain &lt;chr&gt;,
+## #   elegansInput &lt;dbl&gt;, bacterialStrain &lt;chr&gt;, bacterialTreatment &lt;chr&gt;,
+## #   bacterialOD600 &lt;dbl&gt;, bacterialConcX &lt;dbl&gt;, bacterialVolume &lt;dbl&gt;,
+## #   bacterialVolUnit &lt;chr&gt;, incubationVial &lt;chr&gt;, incubationVolume &lt;dbl&gt;, …</code></pre>
+</div>
+<div id="scatterplot-of-the-raw-data" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Scatterplot of the raw data<a href="reproducible-science.html#scatterplot-of-the-raw-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I create a scatterplot to visualise the relationship between chemical concentration and the number of offspring. Different colours represent the chemicals, while different shapes represent the experimental conditions.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="reproducible-science.html#cb33-1" tabindex="-1"></a>data<span class="sc">$</span>compConcentration <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data<span class="sc">$</span>compConcentration)</span>
+<span id="cb33-2"><a href="reproducible-science.html#cb33-2" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="reproducible-science.html#cb33-3" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(</span>
+<span id="cb33-4"><a href="reproducible-science.html#cb33-4" tabindex="-1"></a>  <span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData,</span>
+<span id="cb33-5"><a href="reproducible-science.html#cb33-5" tabindex="-1"></a>  <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span></span>
+<span id="cb33-6"><a href="reproducible-science.html#cb33-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.5</span>), <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb33-7"><a href="reproducible-science.html#cb33-7" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb33-8"><a href="reproducible-science.html#cb33-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Concentration (log10)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;RawData&quot;</span>,</span>
+<span id="cb33-9"><a href="reproducible-science.html#cb33-9" tabindex="-1"></a>       <span class="at">colour =</span> <span class="st">&quot;Chemical&quot;</span>, <span class="at">shape =</span> <span class="st">&quot;Experiment type&quot;</span>) <span class="sc">+</span></span>
+<span id="cb33-10"><a href="reproducible-science.html#cb33-10" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="4_Reproducible_science_files/figure-html/unnamed-chunk-3-1.png" alt="" width="672" /></p>
+</div>
+<div id="data-normalisation" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Data normalisation<a href="reproducible-science.html#data-normalisation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I normalise the data using the mean of the negative control. This makes the mean value of the negative control equal to 1, expressing all other measurements as a fraction of this value.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="reproducible-science.html#cb34-1" tabindex="-1"></a>negative_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>RawData[data<span class="sc">$</span>expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-2"><a href="reproducible-science.html#cb34-2" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="reproducible-science.html#cb34-3" tabindex="-1"></a>data<span class="sc">$</span>normalised <span class="ot">&lt;-</span> data<span class="sc">$</span>RawData <span class="sc">/</span> negative_mean</span>
+<span id="cb34-4"><a href="reproducible-science.html#cb34-4" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="reproducible-science.html#cb34-5" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>normalised[data<span class="sc">$</span>expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+</div>
+<div id="scatterplot-of-the-normalised-data" class="section level3 hasAnchor" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> Scatterplot of the normalised data<a href="reproducible-science.html#scatterplot-of-the-normalised-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I create a second scatterplot to visualise the normalised measurements.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="reproducible-science.html#cb36-1" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> normalised,</span>
+<span id="cb36-2"><a href="reproducible-science.html#cb36-2" tabindex="-1"></a>                 <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="reproducible-science.html#cb36-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.01</span>), <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="reproducible-science.html#cb36-4" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb36-5"><a href="reproducible-science.html#cb36-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Concentration (log10)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Normalised RawData&quot;</span>,</span>
+<span id="cb36-6"><a href="reproducible-science.html#cb36-6" tabindex="-1"></a>       <span class="at">colour =</span> <span class="st">&quot;Chemical&quot;</span>, <span class="at">shape =</span> <span class="st">&quot;Experiment type&quot;</span>) <span class="sc">+</span></span>
+<span id="cb36-7"><a href="reproducible-science.html#cb36-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="4_Reproducible_science_files/figure-html/unnamed-chunk-5-1.png" alt="" width="672" /></p>
+</div>
+<div id="explanation-of-the-analysis" class="section level3 hasAnchor" number="4.1.6">
+<h3><span class="header-section-number">4.1.6</span> Explanation of the analysis<a href="reproducible-science.html#explanation-of-the-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>The negative control in this experiment is S-medium without added chemicals. This serves as a baseline to measure normal reproduction. The positive control is ethanol and is used to check whether the experiment can detect a particular effect.</p></li>
+<li><p>The negative control represents the normal situation. The positive control demonstrates whether the experiment can detect an effect. The vehicle control checks whether the solvent itself influences the results.</p></li>
+<li><p>Normalisation ensures that the mean of the negative control equals 1. This allows all other measurements to be compared fairly with the normal situation.</p></li>
+</ul>
+</div>
+<div id="plan-for-further-research-dose-response-analysis" class="section level3 hasAnchor" number="4.1.7">
+<h3><span class="header-section-number">4.1.7</span> Plan for further research: dose-response analysis<a href="reproducible-science.html#plan-for-further-research-dose-response-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For further research, a dose-response analysis could be performed to determine the IC50 using the <code>drc</code> R package.</p>
+<ol style="list-style-type: decimal">
+<li>Install the <code>drc</code> package.</li>
+<li>Select a chemical and use its corresponding concentrations and measurements.</li>
+<li>Fit a dose-response model using a log-logistic model.</li>
+<li>Visualise the dose-response curve.</li>
+<li>Calculate the IC50 concentration.</li>
+</ol>
+</div>
+</div>
+<div id="assessing-reproducibility" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Assessing reproducibility<a href="reproducible-science.html#assessing-reproducibility" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="article" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Article<a href="reproducible-science.html#article" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Marinos et al. (2020). <em>Defining the nutritional input for genome-scale metabolic models: A roadmap.</em></p>
+<p><a href="https://doi.org/10.1371/journal.pone.0236890">Article</a> | <a href="https://github.com/maringos/StepDiet">GitHub repository</a></p>
+</div>
+<div id="research-question" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Research question<a href="reproducible-science.html#research-question" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>How can the nutritional composition of a growth medium be accurately translated into input data for genome-scale metabolic models?</em></p>
+</div>
+<div id="methods-and-results" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Methods and results<a href="reproducible-science.html#methods-and-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The researchers developed a roadmap using <em>E. coli</em> and LB medium. They used R to analyse the nutritional composition and predict bacterial growth. The results show that different nutrients, such as amino acids and carbohydrates, influence the predicted growth.</p>
+</div>
+<div id="transparency-criteria" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Transparency criteria<a href="reproducible-science.html#transparency-criteria" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Assessment</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Study Purpose</td>
+<td>Yes</td>
+<td>The research objective is clearly described.</td>
+</tr>
+<tr class="even">
+<td>Data Availability Statement</td>
+<td>Yes</td>
+<td>A separate statement about data availability is provided.</td>
+</tr>
+<tr class="odd">
+<td>Data Location</td>
+<td>GitHub</td>
+<td>Data and R scripts are available on GitHub.</td>
+</tr>
+<tr class="even">
+<td>Study Location</td>
+<td>No</td>
+<td>No specific location is mentioned.</td>
+</tr>
+<tr class="odd">
+<td>Author Review</td>
+<td>Yes</td>
+<td>The authors provide their email addresses.</td>
+</tr>
+<tr class="even">
+<td>Ethics Statement</td>
+<td>No</td>
+<td>No separate ethics statement is included.</td>
+</tr>
+<tr class="odd">
+<td>Funding Statement</td>
+<td>Yes</td>
+<td>Funding from the Deutsche Forschungsgemeinschaft is mentioned.</td>
+</tr>
+<tr class="even">
+<td>Code Availability</td>
+<td>Yes</td>
+<td>The R scripts are publicly available on GitHub.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="reviewing-the-r-code" class="section level3 hasAnchor" number="4.2.5">
+<h3><span class="header-section-number">4.2.5</span> Reviewing the R code<a href="reproducible-science.html#reviewing-the-r-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h4>
+Code description
+</h4>
+<p>The R code uses a metabolic model of <em>E. coli</em> to investigate how nutrients influence predicted bacterial growth. Flux Balance Analysis is used for this purpose. The code calculates the effects of additional nutrients and visualises the results using bar plots.</p>
+<h4>
+Readability
+</h4>
+<p><strong>Score: 3/5</strong></p>
+<p>The code contains clear comments and is organised into sections. However, some functions and calculations are too complex for me to fully understand. I also had to adjust the file paths several times.</p>
+<h4>
+Reproducibility
+</h4>
+<p><strong>Score: 2/5</strong></p>
+<p>I attempted to run the analysis in RStudio, but encountered installation problems with <code>glpkAPI</code>. As a result, I was unable to reproduce the figures. Although the code and data are publicly available, the analysis requires adjustments before it can be executed successfully.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-management.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sql.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
