@@ -1,40 +1,37 @@
-# Machine Learning voor kankerclassificatie 
+# Machine Learning for cancer classification
 
+<h4>Which new skill do you want to learn and why?</h4>
 
-**Welke nieuwe skill wil je leren en waarom?**
+I want to learn how to apply Machine Learning to biological data using R. I already have experience with R and RNA-seq data analysis, but Machine Learning is a completely new skill for me. Since I want to further develop my skills in bioinformatics and computational biology, I would like to learn how algorithms can recognise patterns and make predictions.
 
-Ik wil leren hoe ik Machine Learning kan toepassen op biologische data met R. Ik heb al ervaring met R en RNA-seq-data-analyse, maar Machine Learning is voor mij een compleet nieuwe skill. Omdat ik mij verder wil ontwikkelen binnen de bio-informatica en computational biology, wil ik graag leren hoe algoritmen patronen kunnen herkennen en voorspellingen kunnen doen.
+<h4>How are you going to learn this skill and what is your plan?</h4>
 
+With 32 hours available for this project, my plan is as follows:
 
-**Hoe ga je de skill leren en wat is je planning?**
-
-Met 32 uur voor dit project, wordt dit mijn planning:
-
-| Activiteit | Tijd |
+| Activity | Time |
 |---|---:|
-| Theorie en basics van Machine Learning | 4 uur |
-| Leren werken met tidymodels | 5 uur |
-| Dataset zoeken en onderzoeken | 3 uur |
-| Data preprocessing | 5 uur |
-| Random Forest toepassen | 6 uur |
-| Modellen evalueren en vergelijken | 5 uur |
-| Resultaten uitwerken | 4 uur |
-| **Totaal** | **32 uur** |
+| Machine Learning theory and fundamentals | 4 hours |
+| Learning to work with tidymodels | 5 hours |
+| Finding and exploring a dataset | 3 hours |
+| Data preprocessing | 5 hours |
+| Applying Random Forest | 6 hours |
+| Evaluating and comparing models | 5 hours |
+| Reporting the results | 4 hours |
+| **Total** | **32 hours** |
 
+<h4>How are you going to demonstrate that you have mastered this skill?</h4>
 
-**Hoe ga je laten zien dat je de skill beheerst?**
-
-Ik wil een openbare genexpressiedataset gebruiken om de onderstaande onderzoeksvraag te beantwoorden:
+I want to use a publicly available gene expression dataset to answer the following research question:
 
 *"Can machine learning algorithms distinguish between healthy and COVID-19-affected tissue based on gene expression data?"*
 
-Het eindproduct wordt een zelfgeschreven R Markdown waarin ik de gebruikte code, dataverwerking, visualisaties, resultaten en conclusies presenteer. Hiermee laat ik zien dat ik zelfstandig een dataset kan verwerken, machine learning kan toepassen en de resultaten correct kan interpreteren.
+The final product will be a self-written R Markdown document in which I present the code, data processing, visualisations, results and conclusions. This will demonstrate that I can independently process a dataset, apply machine learning and correctly interpret the results.
 
 
 
-## Packages en data importeren
+## Importing Packages and Data
 
-In deze stap laden we de benodigde packages en importeren we de genexpressiedata van GEO-dataset GSE152641.
+In this step, we load the required packages and import the gene expression data from GEO dataset GSE152641.
 
 
 ``` r
@@ -64,9 +61,9 @@ dim(counts)
 ## [1] 20460    86
 ```
 
-## Metadata en groepen ophalen
+## Retrieving Metadata and Groups
 
-In deze stap halen we de metadata uit GEO op. Hiermee bepalen we welke samples afkomstig zijn van COVID-19-patiënten en welke van gezonde controles.
+In this step, we retrieve the metadata from GEO. This allows us to determine which samples originate from COVID-19 patients and which are healthy controls.
 
 
 ``` r
@@ -99,9 +96,9 @@ table(samples$group)
 ##              62              24
 ```
 
-## Data controleren
+## Data Quality Checks
 
-We controleren of de expressiematrix en metadata correct zijn ingelezen en aan elkaar gekoppeld.
+We check whether the expression matrix and metadata have been imported correctly and matched with each other.
 
 
 ``` r
@@ -133,9 +130,9 @@ table(samples$group)
 ##              62              24
 ```
 
-## Data filtering en normalisatie
+## Data Filtering and Normalisation
 
-We splitsen de data eerst en filteren genen uitsluitend op basis van de trainingsset.
+We first split the data and filter genes exclusively based on the training set.
 
 
 ``` r
@@ -177,9 +174,9 @@ y_train <- outcome[train_index]
 y_test <- outcome[-train_index]
 ```
 
-## Random Forest trainen
+## Training the Random Forest Model
 
-We controleren de verdeling van de trainings- en testset en trainen vervolgens het Random Forest-model.
+We check the distribution of the training and test sets and then train the Random Forest model.
 
 
 ``` r
@@ -243,9 +240,9 @@ rf_model
 ## Healthy control       3              17        0.15
 ```
 
-## Model evalueren op de testset
+## Evaluating the Model on the Test Set
 
-We testen hoe goed het model COVID-19-patiënten en gezonde controles kan onderscheiden met ongeziene data.
+We test how well the model can distinguish between COVID-19 patients and healthy controls using unseen data.
 
 
 ``` r
@@ -286,9 +283,9 @@ confusionMatrix(predictions, y_test, positive = "COVID19")
 ## 
 ```
 
-## ROC-curve en AUC berekenen
+## Calculating the ROC Curve and AUC
 
-We evalueren het onderscheidend vermogen van het model met de ROC-curve en AUC.
+We evaluate the model's ability to distinguish between the groups using the ROC curve and AUC.
 
 
 ``` r
@@ -317,9 +314,9 @@ plot(roc_model,
 
 <img src="2_Vrije_opdracht_files/figure-html/roc_analysis-1.png" alt="" width="672" />
 
-## Belangrijkste genen identificeren en visualiseren
+## Identifying and Visualising the Most Important Genes
 
-We identificeren de tien belangrijkste genen op basis van Mean Decrease Gini, vertalen de Entrez Gene IDs naar gensymbolen en visualiseren de resultaten.
+We identify the ten most important genes based on Mean Decrease Gini, convert the Entrez Gene IDs into gene symbols and visualise the results.
 
 
 ``` r
@@ -350,18 +347,18 @@ ggplot(top_genes, aes(reorder(SYMBOL, MeanDecreaseGini), MeanDecreaseGini)) +
 
 ---
 
-## Discussie
+## Discussion
 
-In dit onderzoek is onderzocht of een Random Forest-model COVID-19-patiënten kan onderscheiden van gezonde controles op basis van genexpressieprofielen uit bulk RNA-seq-data. Het model behaalde een accuracy van 93,75% en een AUC van 0,9792. Dit wijst erop dat het model in deze dataset goed onderscheid kan maken tussen beide groepen.
+This study investigated whether a Random Forest model could distinguish between COVID-19 patients and healthy controls based on gene expression profiles from bulk RNA-seq data. The model achieved an accuracy of 93.75% and an AUC of 0.9792. This indicates that the model was able to distinguish well between the two groups within this dataset.
 
-De sensitiviteit bedroeg 100%, wat betekent dat alle COVID-19-patiënten in de testset correct werden geclassificeerd. De specificiteit was 75%: drie van de vier gezonde controles werden correct geclassificeerd. Eén gezonde controle werd ten onrechte als COVID-19-patiënt voorspeld.
+The sensitivity was 100%, meaning that all COVID-19 patients in the test set were correctly classified. The specificity was 75%: three out of four healthy controls were correctly classified. One healthy control was incorrectly predicted as a COVID-19 patient.
 
-De resultaten moeten echter voorzichtig worden geïnterpreteerd vanwege de beperkte omvang van de testset. Deze bestond uit slechts 16 samples, waarvan 12 COVID-19-patiënten en 4 gezonde controles. Hierdoor kan één verkeerd geclassificeerd sample een relatief grote invloed hebben op de prestatiematen. Bovendien is het model geëvalueerd op samples uit dezelfde dataset waarop het is getraind. Externe validatie met een onafhankelijke dataset is daarom nodig om te bepalen of het model ook op andere patiëntengroepen goed presteert.
+However, the results should be interpreted with caution due to the limited size of the test set. It consisted of only 16 samples, including 12 COVID-19 patients and 4 healthy controls. As a result, one incorrectly classified sample can have a relatively large impact on the performance metrics. Furthermore, the model was evaluated on samples from the same dataset used for training. External validation using an independent dataset is therefore necessary to determine whether the model also performs well on other patient groups.
 
-Daarnaast zijn de tien belangrijkste genen geselecteerd op basis van Mean Decrease Gini. Deze maat geeft aan welke genen belangrijk waren bij de voorspellingen van het Random Forest-model. Dit betekent niet automatisch dat deze genen specifieke biomarkers voor COVID-19 zijn. Verder onderzoek is nodig om hun biologische relevantie te onderzoeken.
+In addition, the ten most important genes were selected based on Mean Decrease Gini. This measure indicates which genes were important for the predictions made by the Random Forest model. However, this does not automatically mean that these genes are specific biomarkers for COVID-19. Further research is needed to investigate their biological relevance.
 
-## Conclusie
+## Conclusion
 
-Het Random Forest-model was in staat om COVID-19-patiënten en gezonde controles te onderscheiden op basis van bulk RNA-seq-genexpressiegegevens. Het model behaalde een accuracy van 93,75% en een AUC van 0,9792, wat wijst op sterke classificatieprestaties binnen de gebruikte dataset.
+The Random Forest model was able to distinguish between COVID-19 patients and healthy controls based on bulk RNA-seq gene expression data. The model achieved an accuracy of 93.75% and an AUC of 0.9792, indicating strong classification performance within the dataset used.
 
-Hiermee laten de resultaten zien dat Random Forest een veelbelovende methode kan zijn voor het classificeren van COVID-19 op basis van genexpressieprofielen. Vanwege de kleine testset en het ontbreken van externe validatie kan echter nog niet worden geconcludeerd dat het model betrouwbaar toepasbaar is op nieuwe, onafhankelijke patiëntengroepen.
+These results demonstrate that Random Forest can be a promising method for classifying COVID-19 based on gene expression profiles. However, due to the small test set and the lack of external validation, it cannot yet be concluded that the model can be reliably applied to new, independent patient groups.

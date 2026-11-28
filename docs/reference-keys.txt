@@ -67,3 +67,14 @@ vignette
 publiceren-op-github
 reflectie
 geparametrizeerde-rmd
+machine-learning-for-cancer-classification
+importing-packages-and-data
+retrieving-metadata-and-groups
+data-quality-checks
+data-filtering-and-normalisation
+training-the-random-forest-model
+evaluating-the-model-on-the-test-set
+calculating-the-roc-curve-and-auc
+identifying-and-visualising-the-most-important-genes
+discussion
+conclusion-1
