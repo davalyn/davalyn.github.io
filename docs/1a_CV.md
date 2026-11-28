@@ -113,6 +113,8 @@ VWA, Dronten, Netherlands | August 2023 - December 2023
 - Worked within multidisciplinary teams and contributed to structured project execution.
 - Strengthened technical understanding and problem-solving skills.
 
+---
+
 ## Work Experience
 
 **Fresh Department Responsible**
